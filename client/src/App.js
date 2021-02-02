@@ -1,8 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {useEffect} from "react";
-import axios from "axios";
 import Menu from './Containers/Menu/Menu';
 import OrderDetails from './Containers/OrderDetails/OrderDetails';
 import Orders from './Containers/Orders/Orders';
