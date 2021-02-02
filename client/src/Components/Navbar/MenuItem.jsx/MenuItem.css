@@ -1,0 +1,58 @@
+.menu-item-card {
+  border-radius: 15px;
+  padding: 15px 12px;
+
+  background: #1c6e8c;
+}
+
+.card .menu-item-image {
+  height: 128px;
+  border-radius: 15px;
+}
+
+.card .menu-item-content {
+  padding: 0px 0px 0px 12px;
+}
+
+.card .card-content .menu-item-title {
+  margin: 0;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+
+  color: #ffffff;
+}
+
+.card .menu-item-description {
+  display: inline-block;
+  max-height: 70px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+
+  color: #c7d6d5;
+}
+
+.card .menu-item-price {
+  position: absolute;
+  bottom: 1px;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+
+  color: #ffffff;
+}
