@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Menu.css";
 import MenuItem from "../../Components/Navbar/MenuItem.jsx/MenuItem";
+import MenuFilter from "../../Components/Navbar/MenuFilter.jsx/MenuFilter";
 
 const Menu = () => {
   const seedMenuItems = [
@@ -38,7 +39,9 @@ const Menu = () => {
 
   const [menuItems, setMenuItems] = useState([]);
   const [menuCategories, setMenuCategories] = useState([]);
+  const [currentMenuCategories, setCurrentMenuCategories] = useState([]);
 
+  // TODO: use less hooks //
   useEffect(() => {
     setMenuItems(seedMenuItems);
     // eslint-disable-next-line
@@ -46,25 +49,41 @@ const Menu = () => {
 
   useEffect(() => {
     setMenuCategories([
-      ...new Set(menuItems.map((menuItem) => menuItem.category)),
+      ...new Set(menuItems.map((menuItem) => menuItem.category.toUpperCase())),
+    ]);
+    setCurrentMenuCategories([
+      ...new Set(menuItems.map((menuItem) => menuItem.category.toUpperCase())),
     ]);
   }, [menuItems]);
 
+  const filterMenuByCategory = (e) => {
+    console.log(e.srcElement);
+    e.target.innerText === "ALL"
+      ? setCurrentMenuCategories(menuCategories)
+      : setCurrentMenuCategories([e.target.innerText]);
+  };
+
   return (
-    <section className="menu-wrapper">
-      {menuCategories.map((menuCategory) => {
-        return (
-          <div className="menu-category-wrapper" key={menuCategory}>
-            <span className="menu-category">{menuCategory.toUpperCase()}</span>
-            {menuItems.map((menuItem) =>
-              menuCategory === menuItem.category ? (
-                <MenuItem {...menuItem} key={menuItem._id} />
-              ) : null
-            )}
-          </div>
-        );
-      })}
-    </section>
+    <>
+      <MenuFilter
+        menuCategories={menuCategories}
+        handleClick={filterMenuByCategory}
+      />
+      <section className="menu-wrapper">
+        {currentMenuCategories.map((menuCategory) => {
+          return (
+            <div className="menu-category-wrapper" key={menuCategory}>
+              <span className="menu-category">{menuCategory}</span>
+              {menuItems.map((menuItem) =>
+                menuCategory === menuItem.category.toUpperCase() ? (
+                  <MenuItem {...menuItem} key={menuItem._id} />
+                ) : null
+              )}
+            </div>
+          );
+        })}
+      </section>
+    </>
   );
 };
 
