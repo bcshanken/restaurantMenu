@@ -1,0 +1,19 @@
+.menu-wrapper {
+  padding: 12px;
+}
+
+.menu-category {
+  margin: 0px 12px;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 32px;
+
+  color: #ffffff;
+}
+
+.menu-category-wrapper {
+  padding: 24px 0px 0px 0px;
+}
