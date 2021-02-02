@@ -1,0 +1,27 @@
+.scroll-menu {
+  padding: 11px 12px;
+  overflow: auto;
+  white-space: nowrap;
+  height: 49px;
+
+  background-color: #c7d6d550;
+}
+
+.scroll-menu button {
+  display: inline-block;
+  padding: 3px 15px;
+  margin: 0px 12px 0px 0px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  align-items: center;
+  text-align: center;
+
+  background-color: #c7d6d5;
+  color: #000000;
+  border: none;
+  border-radius: 15px;
+}
