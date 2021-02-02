@@ -7,10 +7,12 @@ import Menu from './Containers/Menu/Menu';
 import OrderDetails from './Containers/OrderDetails/OrderDetails';
 import Orders from './Containers/Orders/Orders';
 import ProductDetails from './Containers/ProductDetails/ProductDetails';
+import Nav from "./Components/Navbar/Nav"
 
 function App() {
   return (
     <Router>
+      <Nav />
       <Switch>
         <Route exact path="/" component={Menu} />
         <Route exact path="/menu" component={Menu} />
