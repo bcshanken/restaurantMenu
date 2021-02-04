@@ -11,18 +11,24 @@ const Menu = () => {
 
   // TODO: use less hooks //
   useEffect(() => {
+    const initializeMenu = async () => {
+      try {
+        const response = await API.getMenu();
+        setMenuItems(response.data);
+        const categoriesSet = [
+          ...new Set(
+            response.data.map((menuItem) => menuItem.category.toUpperCase())
+          ),
+        ];
+        setMenuCategories(categoriesSet);
+        setCurrentMenuCategories(categoriesSet);
+      } catch (err) {
+        console.log(err);
+      }
+    };
     initializeMenu();
     // eslint-disable-next-line
   }, []);
-
-  useEffect(() => {
-    setMenuCategories([
-      ...new Set(menuItems.map((menuItem) => menuItem.category.toUpperCase())),
-    ]);
-    setCurrentMenuCategories([
-      ...new Set(menuItems.map((menuItem) => menuItem.category.toUpperCase())),
-    ]);
-  }, [menuItems]);
 
   const filterMenuByCategory = (filter) => {
     if (filter === "ALL") {
@@ -30,17 +36,6 @@ const Menu = () => {
     } else {
       setCurrentMenuCategories([filter]);
     }
-  };
-
-  const initializeMenu = () => {
-    API.getMenu()
-      .then((response) => {
-        console.log(response.data);
-        setMenuItems(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
 
   return (
