@@ -3,7 +3,7 @@ import "../Navbar/Nav.css"
 
 const Nav = () => {
   return (
-    <div>
+    <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper">
         <ul id="nav-mobile" className="left hide-on-med-and-down">
