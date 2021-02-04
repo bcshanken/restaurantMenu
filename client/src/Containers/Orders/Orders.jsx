@@ -1,5 +1,6 @@
 import React from "react";
-import MenuItem from "../../Components/Navbar/MenuItem.jsx/MenuItem";
+import OrderCard from "../../Components/OrderCard/OrderCard"
+import "../Orders/Orders.css"
 
 const Orders = () => {
   const orders = [
@@ -21,19 +22,16 @@ const Orders = () => {
   ];
 
   return (
-    <div>
+    <div className="order-wrapper">
       {orders.map((orderItems, index) => {
           <h1>{orderItems.title}</h1>
         return (
-          <div className="card horizontal">
+          <div className="card horizontal order-category-wrapper order-card">
               <div className="card-stacked">
             {orderItems.content.map((order) => {
               return (
                 <>
-                    <div className="card-content">
-                      <span className="card-title">{order.title}</span>
-                      <strong>{order.price}</strong>
-                    </div>
+                    <OrderCard {...order}/>
                 </>
               );
             })}
