@@ -7,8 +7,10 @@ const MenuItem = ({ title, description, img, price, category, _id }) => {
       <img className="menu-item-image" src={img} alt={title} />
       <div className="card-stacked">
         <div className="card-content menu-item-content">
-          <span className="card-title menu-item-title">{title}</span>
-          <p className="menu-item-description">{description}</p>
+          <p className="menu-item-description">
+            <span className="card-title menu-item-title">{title}</span>
+            {description}
+          </p>
           <strong className="menu-item-price">{price}</strong>
         </div>
       </div>
