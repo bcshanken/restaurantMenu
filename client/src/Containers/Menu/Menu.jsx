@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Menu.css";
-import MenuItem from "../../Components/Navbar/MenuItem.jsx/MenuItem";
-import MenuFilter from "../../Components/Navbar/MenuFilter.jsx/MenuFilter";
+import MenuItem from "../../Components/MenuItem.jsx/MenuItem";
+import MenuFilter from "../../Components/MenuFilter.jsx/MenuFilter";
 import API from "../../utils/API";
 
 const Menu = () => {
@@ -35,7 +35,7 @@ const Menu = () => {
   const initializeMenu = () => {
     API.getMenu()
       .then((response) => {
-        console.log(response);
+        console.log(response.data);
         setMenuItems(response.data);
       })
       .catch((err) => {
