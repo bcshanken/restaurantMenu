@@ -15,24 +15,24 @@
 }
 
 .card .card-content .menu-item-title {
-  margin: 0;
+  margin: 0px 0px 6px 0px;
 
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
-  line-height: 28px;
+  line-height: 22px;
 
   color: #ffffff;
 }
 
 .card .menu-item-description {
   display: inline-block;
-  max-height: 70px;
+  max-height: 220px;
   overflow: hidden;
 
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 
   font-family: "Roboto", sans-serif;

@@ -4,10 +4,10 @@ import "./MenuFilter.css";
 const MenuFilter = ({ menuCategories, handleClick }) => {
   return (
     <div className="scroll-menu">
-      <button onClick={handleClick}>ALL</button>
-      {menuCategories.map(function (menuCategory) {
+      <button onClick={() => {handleClick("ALL")}}>ALL</button>
+      {menuCategories.map((menuCategory) => {
         return (
-          <button onClick={handleClick} key={menuCategory}>
+          <button onClick={() => {handleClick(menuCategory)}} key={menuCategory}>
             {menuCategory}
           </button>
         );

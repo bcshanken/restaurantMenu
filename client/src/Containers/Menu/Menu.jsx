@@ -1,49 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./Menu.css";
-import MenuItem from "../../Components/Navbar/MenuItem.jsx/MenuItem";
-import MenuFilter from "../../Components/Navbar/MenuFilter.jsx/MenuFilter";
+import MenuItem from "../../Components/MenuItem.jsx/MenuItem";
+import MenuFilter from "../../Components/MenuFilter.jsx/MenuFilter";
+import API from "../../utils/API";
 
 const Menu = () => {
-  const seedMenuItems = [
-    {
-      _id: 123,
-      title: "Salmon",
-      description:
-        "Blackened salmon served with peppers, grilled onions, and white rice.",
-      img:
-        "https://www.dinneratthezoo.com/wp-content/uploads/2019/06/broiled-salmon-11-500x500.jpg",
-      price: 19.99,
-      category: "entrees",
-    },
-    {
-      _id: 124,
-      title: "Salmon",
-      description:
-        "Blackened salmon served with peppers, grilled onions, and white rice.",
-      img:
-        "https://www.dinneratthezoo.com/wp-content/uploads/2019/06/broiled-salmon-11-500x500.jpg",
-      price: 19.99,
-      category: "entrees",
-    },
-    {
-      _id: 126,
-      title: "Bacon",
-      description:
-        "Blackened salmon served with peppers, grilled onions, and white rice.",
-      img:
-        "https://www.dinneratthezoo.com/wp-content/uploads/2019/06/broiled-salmon-11-500x500.jpg",
-      price: 19.99,
-      category: "appetizers",
-    },
-  ];
-
   const [menuItems, setMenuItems] = useState([]);
   const [menuCategories, setMenuCategories] = useState([]);
   const [currentMenuCategories, setCurrentMenuCategories] = useState([]);
 
   // TODO: use less hooks //
   useEffect(() => {
-    setMenuItems(seedMenuItems);
+    initializeMenu();
     // eslint-disable-next-line
   }, []);
 
@@ -56,11 +24,23 @@ const Menu = () => {
     ]);
   }, [menuItems]);
 
-  const filterMenuByCategory = (e) => {
-    console.log(e.srcElement);
-    e.target.innerText === "ALL"
-      ? setCurrentMenuCategories(menuCategories)
-      : setCurrentMenuCategories([e.target.innerText]);
+  const filterMenuByCategory = (filter) => {
+    if (filter === "ALL") {
+      setCurrentMenuCategories(menuCategories);
+    } else {
+      setCurrentMenuCategories([filter]);
+    }
+  };
+
+  const initializeMenu = () => {
+    API.getMenu()
+      .then((response) => {
+        console.log(response.data);
+        setMenuItems(response.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
