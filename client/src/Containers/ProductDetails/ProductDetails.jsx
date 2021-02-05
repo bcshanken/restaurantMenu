@@ -1,30 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductDetails.css";
+import API from "../../utils/API";
 
-const ProductDetails = () => {
+const ProductDetails = (props) => {
+  const [menuItem, setMenuItem] = useState([]);
+
+  useEffect(() => {
+    const initializeProductDetails = async () => {
+      const response = await API.getItem(props.match.params.id);
+      setMenuItem(response.data);
+    };
+
+    initializeProductDetails();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <main className="product-details-wrapper">
       <div className="img-wrapper">
-        <img
-          src="https://res.cloudinary.com/dwc5cle4q/image/upload/v1612279412/Aquaman/Shrimp-Curry_vv5p77.jpg"
-          alt="place holder"
-        ></img>
+        <img src={menuItem.img} alt="place holder"></img>
       </div>
       <section>
-        <h1>Pizza</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio suscipit
-          culpa placeat ratione aliquid alias? Cumque inventore voluptate
-          debitis vero possimus delectus, veniam adipisci assumenda dolore odio,
-          nihil saepe modi?
-        </p>
-        <strong>5.00</strong>
+        <h1>{menuItem.title}</h1>
+        <p>{menuItem.description}</p>
+        <strong>{menuItem.price}</strong>
       </section>
       <section>
         <h1>Add Ons</h1>
       </section>
       <div className="input-field">
-        <textarea id="special-instructions" className="materialize-textarea"></textarea>
+        <textarea
+          id="special-instructions"
+          className="materialize-textarea"
+        ></textarea>
         <label htmlFor="special-instructions">Special instructions</label>
       </div>
       <button>Add to order</button>

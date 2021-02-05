@@ -42,7 +42,7 @@
 }
 
 .product-details-wrapper strong {
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
@@ -52,7 +52,7 @@
 }
 
 .product-details-wrapper .input-field {
-  margin: 30px 12px ;
+  margin: 30px 12px;
 }
 
 .product-details-wrapper .input-field textarea {
@@ -61,7 +61,7 @@
 }
 
 .product-details-wrapper .input-field label {
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -83,8 +83,8 @@
   padding: 10px;
   border: none;
   border-radius: 7px;
-    display: block;
-    margin: 0px auto;
+  display: block;
+  margin: 0px auto;
 
   font-family: "Roboto", sans-serif;
   font-style: normal;
