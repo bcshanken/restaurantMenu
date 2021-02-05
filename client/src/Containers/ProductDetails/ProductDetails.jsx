@@ -1,41 +1,34 @@
 import React from "react";
+import "./ProductDetails.css";
 
 const ProductDetails = () => {
   return (
-    <div className="container center-align">
-      <h1>product title</h1>
-      <img src="https://via.placeholder.com/150"></img>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio suscipit
-        culpa placeat ratione aliquid alias? Cumque inventore voluptate debitis
-        vero possimus delectus, veniam adipisci assumenda dolore odio, nihil
-        saepe modi?
-      </p>
-      <div class="row">
-        <form class="col s12">
-          <h3>Customer Comments</h3>
-          <div class="row">
-            <div class="input-field col s12">
-              <input
-                placeholder="Customer Comments"
-                id="customer_comments"
-                type="text"
-              />
-            </div>
-          </div>
-          <div class="row">
-            <button
-              class="btn waves-effect waves-light submit-button"
-              type="submit"
-              name="action"
-            >
-              Add to order
-              
-            </button>
-          </div>
-        </form>
+    <main className="product-details-wrapper">
+      <div className="img-wrapper">
+        <img
+          src="https://res.cloudinary.com/dwc5cle4q/image/upload/v1612279412/Aquaman/Shrimp-Curry_vv5p77.jpg"
+          alt="place holder"
+        ></img>
       </div>
-    </div>
+      <section>
+        <h1>Pizza</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio suscipit
+          culpa placeat ratione aliquid alias? Cumque inventore voluptate
+          debitis vero possimus delectus, veniam adipisci assumenda dolore odio,
+          nihil saepe modi?
+        </p>
+        <strong>5.00</strong>
+      </section>
+      <section>
+        <h1>Add Ons</h1>
+      </section>
+      <div className="input-field">
+        <textarea id="special-instructions" className="materialize-textarea"></textarea>
+        <label htmlFor="special-instructions">Special instructions</label>
+      </div>
+      <button>Add to order</button>
+    </main>
   );
 };
 

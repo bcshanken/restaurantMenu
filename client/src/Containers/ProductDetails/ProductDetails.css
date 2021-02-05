@@ -1,0 +1,98 @@
+.product-details-wrapper .img-wrapper {
+  width: 100%; /* width of container */
+  height: 25vh; /* height of container */
+  overflow: hidden;
+  position: relative;
+}
+
+.product-details-wrapper .img-wrapper img {
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.product-details-wrapper section {
+  padding: 12px;
+  border-bottom: 1px solid #42596b;
+}
+
+.product-details-wrapper h1 {
+  margin: 5px 0px 5px 0px;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #ffffff;
+}
+
+.product-details-wrapper p {
+  margin: 0px 0px 10px 0px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #c7d6d5;
+}
+
+.product-details-wrapper strong {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #ffffff;
+}
+
+.product-details-wrapper .input-field {
+  margin: 30px 12px ;
+}
+
+.product-details-wrapper .input-field textarea {
+  border-bottom: 1px solid #c7d6d5;
+  color: #ffffff;
+}
+
+.product-details-wrapper .input-field label {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #c7d6d5;
+}
+
+.product-details-wrapper .input-field textarea:focus + label {
+  color: #c7d6d5;
+}
+
+.product-details-wrapper .input-field textarea:focus {
+  border-bottom: 1px solid #c7d6d5;
+  box-shadow: 0 1px 0 0 #c7d6d5;
+}
+
+.product-details-wrapper button {
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+    display: block;
+    margin: 0px auto;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+
+  color: #ffffff;
+  background: #da9553;
+}
