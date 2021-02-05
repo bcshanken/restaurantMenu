@@ -5,6 +5,8 @@ import OrderDetails from './Containers/OrderDetails/OrderDetails';
 import Orders from './Containers/Orders/Orders';
 import ProductDetails from './Containers/ProductDetails/ProductDetails';
 import Nav from "./Components/Navbar/Nav"
+import AdminMenu from './Containers/AdminMenu/AdminMenu';
+import NewFood from './Containers/NewFood/NewFood';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route exact path="/orderdetail" component={OrderDetails} />
         <Route exact path="/orders" component={ Orders} />
         <Route exact path="/product:id" component={ ProductDetails} />
+        <Route exact path="/adminmenu" component={ AdminMenu} />
+        <Route exact path="/newfood" component={ NewFood} />
       </Switch>
     </Router>
   );
