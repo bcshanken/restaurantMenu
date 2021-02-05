@@ -30,11 +30,11 @@ const Menu = () => {
     // eslint-disable-next-line
   }, []);
 
-  const filterMenuByCategory = (filter) => {
-    if (filter === "ALL") {
+  const filterMenuByCategory = (category) => {
+    if (category === "ALL") {
       setCurrentMenuCategories(menuCategories);
     } else {
-      setCurrentMenuCategories([filter]);
+      setCurrentMenuCategories([category]);
     }
   };
 
