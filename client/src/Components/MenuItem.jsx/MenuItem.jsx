@@ -1,9 +1,9 @@
 import React from "react";
 import "./MenuItem.css";
 
-const MenuItem = ({ title, description, img, price, category, _id }) => {
+const MenuItem = ({ title, description, img, price, _id }) => {
   return (
-    <div className="card horizontal menu-item-card">
+    <a href={"/product" + _id} className="card horizontal menu-item-card">
       <img className="menu-item-image" src={img} alt={title} />
       <div className="card-stacked">
         <div className="card-content menu-item-content">
@@ -14,7 +14,7 @@ const MenuItem = ({ title, description, img, price, category, _id }) => {
           <strong className="menu-item-price">{price}</strong>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
