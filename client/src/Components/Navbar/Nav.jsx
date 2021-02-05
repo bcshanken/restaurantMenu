@@ -1,23 +1,34 @@
 import React from "react";
-import "../Navbar/Nav.css"
+import "../Navbar/Nav.css";
+import { NavLink, Link } from "react-router-dom";
 
 const Nav = () => {
   return (
     <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper">
-        <ul id="nav-mobile" className="left hide-on-med-and-down">
+          <ul id="nav-mobile" className="left hide-on-med-and-down">
             <li>
-              <a href="sass.html">Home</a>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/menu">Menu</NavLink>
+            </li>
+            <li>
+              <NavLink to="/orderdetail">Order Details</NavLink>
+            </li>
+            <li>
+              <NavLink to="/product/:id">Product Details</NavLink>
+            </li>
+            <li>
+              <NavLink to="/orders">Orders</NavLink>
             </li>
           </ul>
           <a href="#" className="brand-logo center">
             Poseidon's Catch
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li>
-              <a href="sass.html">Cart</a>
-            </li>
+            <li>Checkout link goes here</li>
           </ul>
         </div>
       </nav>
