@@ -4,7 +4,7 @@
   white-space: nowrap;
   height: 49px;
 
-  background-color: #c7d6d550;
+  background-color: #42596B;
 }
 
 .scroll-menu button {
@@ -20,8 +20,13 @@
   align-items: center;
   text-align: center;
 
-  background-color: #c7d6d5;
+  background-color: #ffffff50;
   color: #000000;
   border: none;
   border-radius: 15px;
+}
+
+.scroll-menu button.active {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease-out;
 }
