@@ -3,7 +3,7 @@ import "../Login/Login.css"
 
 const Login = () => {
   return (
-    <div className="container">
+    <div className="container login-card">
       <div className="row">
         <div className="col s12 m6">
           <div class="card blue-grey darken-1">
