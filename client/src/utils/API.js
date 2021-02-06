@@ -18,7 +18,4 @@ export default {
   createResponse: function(responseData) {
     return axios.post("/api/menu", responseData);
   },
-  editMenu: function(responseData) {
-    return axios.put("/api/menu", responseData);
-  }
 };
