@@ -1,4 +1,5 @@
 import React from "react";
+import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import OrderCard from "../../Components/OrderCard/OrderCard"
 import "../Orders/Orders.css"
 
@@ -22,6 +23,8 @@ const Orders = () => {
   ];
 
   return (
+    <>
+    <NavHomeOnly/>
     <div className="order-wrapper">
       {orders.map((orderItems, index) => {
           <h1>{orderItems.title}</h1>
@@ -40,6 +43,7 @@ const Orders = () => {
         );
       })}
     </div>
+    </>
   );
 };
 

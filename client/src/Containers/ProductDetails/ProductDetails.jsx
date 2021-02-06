@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import "./ProductDetails.css";
 import API from "../../utils/API";
 import AddOn from "../../Components/AddOn/AddOn";
+import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
+
 
 const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState([]);
@@ -17,6 +19,8 @@ const ProductDetails = (props) => {
   }, []);
 
   return (
+    <>
+    <NavHomeOnly/>
     <main className="product-details-wrapper">
       <div className="img-wrapper">
         <img src={menuItem.img} alt="place holder"></img>
@@ -43,6 +47,7 @@ const ProductDetails = (props) => {
 
       <button>Add to order</button>
     </main>
+    </>
   );
 };
 
