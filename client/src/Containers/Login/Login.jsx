@@ -14,13 +14,6 @@ const Login = () => {
                     <div class="input-field col s12">
                       <input id="email" type="email" class="validate" />
                       <label for="email">Email</label>
-                      <span
-                        class="helper-text"
-                        data-error="wrong"
-                        data-success="right"
-                      >
-                        Helper text
-                      </span>
                     </div>
                   </div>
                   <div class="row">
@@ -28,13 +21,16 @@ const Login = () => {
                       <input id="password" type="password" class="validate" />
                       <label for="password">Password</label>
                     </div>
+                    <button
+                      class="btn waves-effect waves-light submit-button"
+                      type="submit"
+                      name="action"
+                    >
+                      Sign In
+                    </button>
                   </div>
                 </form>
               </div>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-              <a href="#">This is a link</a>
             </div>
           </div>
         </div>
