@@ -2,11 +2,17 @@
   display: flex;
   justify-content: space-between;
   align-content: center;
-  padding: 12px;
+  padding: 12px 12px;
   margin: 10px 0px 5px 0px;
+  width: 100%;
+  border: none;
   border-radius: 10px;
 
-  background: #1c6e8c;
+  background-color: #1c6e8c;
+}
+
+.add-on-added span{
+  color: #ffffff;
 }
 
 .add-on-title {
@@ -27,4 +33,12 @@
   line-height: 21px;
 
   color: #c7d6d5;
+}
+
+.add-on-icon {
+  margin: 0px 8px 0px 0px;
+}
+
+.add-on-card:focus {
+  background-color: #1c6e8c;
 }

@@ -19,7 +19,7 @@
   border-bottom: 1px solid #42596b;
 }
 
-.product-details-wrapper h1 {
+.product-details-title {
   margin: 0px 0px 5px 0px;
 
   font-family: "Roboto", sans-serif;
@@ -31,7 +31,7 @@
   color: #ffffff;
 }
 
-.product-details-wrapper p {
+.product-details-description {
   margin: 0px 0px 11px 0px;
 
   font-family: "Roboto", sans-serif;
@@ -41,7 +41,7 @@
   color: #c7d6d5;
 }
 
-.product-details-wrapper strong {
+.product-details-price {
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -52,7 +52,7 @@
 }
 
 .product-details-wrapper .input-field {
-  margin: 18px 0px 0px 0px;
+  margin: 42px 12px 24px 12px;
 }
 
 .product-details-wrapper .input-field textarea {
@@ -79,7 +79,7 @@
   box-shadow: 0 1px 0 0 #c7d6d5;
 }
 
-.product-details-wrapper button {
+.product-details-submit {
   padding: 10px;
   border: none;
   border-radius: 7px;

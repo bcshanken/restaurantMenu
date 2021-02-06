@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSquare } from "@fortawesome/free-regular-svg-icons";
+import { faSquare, faCheckSquare } from "@fortawesome/free-regular-svg-icons";
 
 import "./AddOn.css";
 
-const AddOn = () => {
+const AddOn = ({ title, price }) => {
+  const [isAdded, setIsAdded] = useState(false);
+
   return (
-    <div className="add-on-card">
+    <button
+      className={`add-on-card ${isAdded ? "add-on-added" : ""} `}
+      onClick={() => {
+        setIsAdded(!isAdded);
+      }}
+    >
       <span className="add-on-title">
-        <FontAwesomeIcon icon={faSquare} />
-        {" "}Fries
+        <FontAwesomeIcon
+          icon={isAdded ? faCheckSquare : faSquare}
+          className="add-on-icon"
+        />
+        {title}
       </span>
-      <span className="add-on-price">+1.00</span>
-    </div>
+      <span className="add-on-price">{`+${price}`}</span>
+    </button>
   );
 };
 

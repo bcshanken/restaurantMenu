@@ -6,12 +6,16 @@ import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 
 
 const ProductDetails = (props) => {
-  const [menuItem, setMenuItem] = useState([]);
+  const [menuItem, setMenuItem] = useState({});
+  const [menu, setMenu] = useState([]);
 
   useEffect(() => {
     const initializeProductDetails = async () => {
-      const response = await API.getItem(props.match.params.id);
-      setMenuItem(response.data);
+      const menuItemResponse = await API.getItem(props.match.params.id);
+      setMenuItem(menuItemResponse.data);
+
+      const menuResponse = await API.getMenu();
+      setMenu(menuResponse.data);
     };
 
     initializeProductDetails();
@@ -26,26 +30,26 @@ const ProductDetails = (props) => {
         <img src={menuItem.img} alt="place holder"></img>
       </div>
       <section>
-        <h1>{menuItem.title}</h1>
-        <p>{menuItem.description}</p>
-        <strong>{menuItem.price}</strong>
+        <h1 className="product-details-title">{menuItem.title}</h1>
+        <p className="product-details-description">{menuItem.description}</p>
+        <strong className="product-details-price">{menuItem.price}</strong>
       </section>
       <section>
-        <h1>Add Ons</h1>
-        <AddOn />
-        <AddOn />
+        <h1 className="product-details-title">Add Ons</h1>
+        {menu.map((menuItem) =>
+          // TODO: menuItem.category === "Side"
+          menuItem.category === "Dessert" ? <AddOn {...menuItem} key={menuItem._id}/> : null
+        )}
       </section>
-      <section>
-        <div className="input-field">
-          <textarea
-            id="special-instructions"
-            className="materialize-textarea"
-          ></textarea>
-          <label htmlFor="special-instructions">Special instructions</label>
-        </div>
-      </section>
+      <div className="input-field">
+        <textarea
+          id="special-instructions"
+          className="materialize-textarea"
+        ></textarea>
+        <label htmlFor="special-instructions">Special instructions</label>
+      </div>
 
-      <button>Add to order</button>
+      <button className="product-details-submit">Add to order</button>
     </main>
     </>
   );
