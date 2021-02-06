@@ -7,7 +7,7 @@ const Login = () => {
         <div className="col s12 m6">
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
-              <span class="card-title">Card Title</span>
+              <span class="card-title">Admin Login</span>
               <div class="row">
                 <form class="col s12">
                   <div class="row">
