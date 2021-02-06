@@ -8,12 +8,12 @@ const NavAdmin = () => {
       <nav>
         <div className="nav-wrapper">
       
-              <NavLink className="left" to="/adminmenu">My Menu</NavLink>
+              <NavLink className="left nav-link" to="/adminmenu">My Menu</NavLink>
             
           <a href="#" className="brand-logo center">
             Poseidon's Catch
           </a>
-          <NavLink className="right" to="/newfood">New Food</NavLink>
+          <NavLink className="right nav-link" to="/newfood">New Food</NavLink>
         </div>
       </nav>
     </div>

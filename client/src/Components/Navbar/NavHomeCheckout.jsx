@@ -8,12 +8,12 @@ const NavHomeCheckout = () => {
       <nav>
         <div className="nav-wrapper">
       
-              <NavLink className="left" to="/">Home</NavLink>
+              <NavLink className="left nav-link" to="/">Home</NavLink>
             
           <a href="#" className="brand-logo center">
             Poseidon's Catch
           </a>
-          <ul id="nav-mobile" className="right">
+          <ul id="nav-mobile" className="right nav-link">
             <li>Checkout</li>
           </ul>
         </div>
