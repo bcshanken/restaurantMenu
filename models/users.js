@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-autoIncrement.initialize(mongoose.connection);
 
 const userSchema = new Schema({
   firstName: { type: String, trim: true, unique: true, required: true },
