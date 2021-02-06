@@ -42,7 +42,7 @@ const AdminMenu = () => {
         <thead>
           <tr>
               <th>Name</th>
-              <th>Details</th>
+              <th>Description</th>
               <th>Img</th>
               <th>Category</th>
               <th>Price</th>
@@ -56,14 +56,14 @@ const AdminMenu = () => {
                 ({
                   _id,
                   title,
-                  details,
+                  description,
                   price,
                   img,
                   category,                  
                 }) => (
                   <tr key={_id}>
                     <td>{title}</td>
-                    <td>{details}</td>
+                    <td>{description}</td>
                     <td><img
                         src={img}
                         alt={title}
