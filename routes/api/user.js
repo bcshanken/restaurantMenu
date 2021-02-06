@@ -1,10 +1,8 @@
 const router = require("express").Router();
-
+const userController = require("../../controllers/userController")
 
 router
   .route("/:email")
-  .get(menuController.find)
-  .put(menuController.update)
-  .delete(menuController.remove);
+  .get(userController.findOne)
 
 module.exports = router;
