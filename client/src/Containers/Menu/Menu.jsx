@@ -3,6 +3,7 @@ import "./Menu.css";
 import MenuItem from "../../Components/MenuItem.jsx/MenuItem";
 import MenuFilter from "../../Components/MenuFilter.jsx/MenuFilter";
 import API from "../../utils/API";
+import NavHomeCheckout from "../../Components/Navbar/NavHomeCheckout";
 
 const Menu = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -40,6 +41,7 @@ const Menu = () => {
 
   return (
     <>
+    <NavHomeCheckout/>
       <MenuFilter
         menuCategories={menuCategories}
         handleClick={filterMenuByCategory}

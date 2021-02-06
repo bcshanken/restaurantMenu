@@ -4,20 +4,22 @@ import Menu from './Containers/Menu/Menu';
 import OrderDetails from './Containers/OrderDetails/OrderDetails';
 import Orders from './Containers/Orders/Orders';
 import ProductDetails from './Containers/ProductDetails/ProductDetails';
-import Nav from "./Components/Navbar/Nav"
 import AdminMenu from './Containers/AdminMenu/AdminMenu';
 import NewFood from './Containers/NewFood/NewFood';
+import Home from './Containers/Home/Home';
+
+
 
 function App() {
+  
   return (
     <Router>
-      <Nav />
       <Switch>
-        <Route exact path="/" component={Menu} />
+        <Route exact path="/" component={Home} />
         <Route exact path="/menu" component={Menu} />
         <Route exact path="/orderdetail" component={OrderDetails} />
         <Route exact path="/orders" component={ Orders} />
-        <Route exact path="/product:id" component={ ProductDetails} />
+        <Route exact path="/product:id" component={ProductDetails}/>
         <Route exact path="/adminmenu" component={ AdminMenu} />
         <Route exact path="/newfood" component={ NewFood} />
       </Switch>
