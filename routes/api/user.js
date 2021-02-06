@@ -2,8 +2,8 @@ const router = require("express").Router();
 
 
 router
-  .route("/:id")
-  .get(menuController.findById)
+  .route("/:email")
+  .get(menuController.find)
   .put(menuController.update)
   .delete(menuController.remove);
 
