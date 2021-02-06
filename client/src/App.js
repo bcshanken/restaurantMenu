@@ -7,6 +7,7 @@ import ProductDetails from './Containers/ProductDetails/ProductDetails';
 import Nav from "./Components/Navbar/Nav"
 import AdminMenu from './Containers/AdminMenu/AdminMenu';
 import NewFood from './Containers/NewFood/NewFood';
+import Login from './Containers/Login/Login'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path="/product:id" component={ ProductDetails} />
         <Route exact path="/adminmenu" component={ AdminMenu} />
         <Route exact path="/newfood" component={ NewFood} />
+        <Route exact path="/adminlogin" component={Login}/>
       </Switch>
     </Router>
   );

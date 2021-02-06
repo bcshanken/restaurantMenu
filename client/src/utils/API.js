@@ -17,5 +17,5 @@ export default {
   // Saves a book to the database
   createResponse: function(responseData) {
     return axios.post("/api/menu", responseData);
-  }
+  },
 };
