@@ -8,13 +8,15 @@ const NavHomeCheckout = () => {
       <nav>
         <div className="nav-wrapper">
       
-              <NavLink className="left nav-link" to="/">Home</NavLink>
+              <NavLink className="left nav-link" to="/">
+              <i class='fas fa-home'></i>
+            </NavLink>
             
           <a href="#" className="brand-logo center">
             Poseidon's Catch
           </a>
           <ul id="nav-mobile" className="right nav-link">
-            <li>Checkout</li>
+          <i className='fas fa-shopping-cart'></i>
           </ul>
         </div>
       </nav>

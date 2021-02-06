@@ -8,7 +8,9 @@ const NavHomeOnly = () => {
       <nav>
         <div className="nav-wrapper">
       
-              <NavLink className="left nav-link" to="/">Home</NavLink>
+              <NavLink className="left nav-link" to="/">
+              <i class='fas fa-home'></i>
+              </NavLink>
             
           <a href="#" className="brand-logo center">
             Poseidon's Catch
