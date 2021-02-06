@@ -15,12 +15,12 @@
 }
 
 .product-details-wrapper section {
-  padding: 12px;
+  padding: 24px 12px;
   border-bottom: 1px solid #42596b;
 }
 
 .product-details-wrapper h1 {
-  margin: 5px 0px 5px 0px;
+  margin: 0px 0px 5px 0px;
 
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -32,7 +32,7 @@
 }
 
 .product-details-wrapper p {
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 11px 0px;
 
   font-family: "Roboto", sans-serif;
   font-size: 18px;
@@ -46,13 +46,13 @@
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
-  line-height: 21px;
+  line-height: 18px;
 
   color: #ffffff;
 }
 
 .product-details-wrapper .input-field {
-  margin: 30px 12px;
+  margin: 18px 0px 0px 0px;
 }
 
 .product-details-wrapper .input-field textarea {
@@ -84,7 +84,7 @@
   border: none;
   border-radius: 7px;
   display: block;
-  margin: 0px auto;
+  margin: 24px auto;
 
   font-family: "Roboto", sans-serif;
   font-style: normal;

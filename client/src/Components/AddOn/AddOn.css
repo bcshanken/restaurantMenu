@@ -1,0 +1,30 @@
+.add-on-card {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 12px;
+  margin: 10px 0px 5px 0px;
+  border-radius: 10px;
+
+  background: #1c6e8c;
+}
+
+.add-on-title {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #c7d6d5;
+}
+
+.add-on-price {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #c7d6d5;
+}

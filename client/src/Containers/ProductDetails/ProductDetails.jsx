@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./ProductDetails.css";
 import API from "../../utils/API";
+import AddOn from "../../Components/AddOn/AddOn";
 import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
+
 
 const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState([]);
@@ -30,14 +32,19 @@ const ProductDetails = (props) => {
       </section>
       <section>
         <h1>Add Ons</h1>
+        <AddOn />
+        <AddOn />
       </section>
-      <div className="input-field">
-        <textarea
-          id="special-instructions"
-          className="materialize-textarea"
-        ></textarea>
-        <label htmlFor="special-instructions">Special instructions</label>
-      </div>
+      <section>
+        <div className="input-field">
+          <textarea
+            id="special-instructions"
+            className="materialize-textarea"
+          ></textarea>
+          <label htmlFor="special-instructions">Special instructions</label>
+        </div>
+      </section>
+
       <button>Add to order</button>
     </main>
     </>
