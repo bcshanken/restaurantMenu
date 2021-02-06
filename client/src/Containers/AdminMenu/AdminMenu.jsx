@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
+import NavAdmin from "../../Components/Navbar/NavAdmin";
 
 const AdminMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -30,6 +31,8 @@ const AdminMenu = () => {
 
  
   return (
+    <>
+    <NavAdmin/>
       <div className="container">
           <div className="row">
               <div className="col s12">
@@ -82,6 +85,7 @@ const AdminMenu = () => {
               </div>
           </div>
       </div>
+      </>
   )
 };
 

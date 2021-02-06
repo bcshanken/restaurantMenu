@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import NavAdmin from "../../Components/Navbar/NavAdmin";
 import API from "../../utils/API";
 
 const NewFood = (props) => {
@@ -20,6 +20,8 @@ const NewFood = (props) => {
     }
 
   return (
+    <>
+    <NavAdmin/>
     <div className="container">
       <div className="row">
         <div className="col sm12">
@@ -110,6 +112,7 @@ const NewFood = (props) => {
         </form>
       </div>
     </div>
+    </>
   );
 };
 
