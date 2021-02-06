@@ -3,7 +3,8 @@ import "../Login/Login.css"
 
 const Login = () => {
 
-    const [userName, setUserName] = useState("") 
+    const [userName, setUserName] = useState("");
+    const [password, setPassword] = useState("")
 
   return (
     <div className="container login-card">
