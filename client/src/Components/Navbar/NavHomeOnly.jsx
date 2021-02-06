@@ -10,13 +10,14 @@ const NavHomeOnly = () => {
       <nav>
         <div className="nav-wrapper">
       
-              <NavLink className="left nav-link" to="/">
-              <FontAwesomeIcon icon={faHome} />
-              </NavLink>
+            <NavLink className="left nav-link" to="/menu">
+                <FontAwesomeIcon icon={faHome} />
+            </NavLink>
             
-          <a href="#" className="brand-logo center">
-            Poseidon's Catch
-          </a>
+            <NavLink to="/" className="brand-logo center">
+                Poseidon's Catch
+            </NavLink>
+            
         </div>
       </nav>
     </div>
