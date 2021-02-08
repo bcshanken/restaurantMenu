@@ -1,3 +1,4 @@
+import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import React, { useState } from "react";
 import {useHistory} from "react-router-dom"
 import "../Login/Login.css";
@@ -17,6 +18,8 @@ const Login = () => {
   };
 
   return (
+    <>
+    <NavHomeOnly/>
     <div className="container login-card">
       <div className="row">
         <div className="col s12 m6">
@@ -67,6 +70,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
