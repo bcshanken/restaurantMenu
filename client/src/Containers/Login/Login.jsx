@@ -1,29 +1,59 @@
-import React from "react";
-import "../Login/Login.css"
+import React, { useState } from "react";
+import {useHistory} from "react-router-dom"
+import "../Login/Login.css";
+import API from "../../utils/API";
 
 const Login = () => {
+    const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    API.getUsers(email).then((response) => {
+      console.log(response.data);
+      history.push("/adminmenu")
+    });
+  };
+
   return (
     <div className="container login-card">
       <div className="row">
         <div className="col s12 m6">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">Admin Login</span>
-              <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="email" type="email" class="validate" />
-                      <label for="email">Email</label>
+          <div className="card blue-grey darken-1">
+            <div className="card-content white-text">
+              <span className="card-title">Admin Login</span>
+              <div className="row">
+                <form className="col s12" onSubmit={handleFormSubmit}>
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input
+                        id="email"
+                        type="email"
+                        className="validate"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }}
+                      />
+                      <label htmlFor="email">Email</label>
                     </div>
                   </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="password" type="password" class="validate" />
-                      <label for="password">Password</label>
+                  <div className="row">
+                    <div className="input-field col s12">
+                      <input
+                        id="password"
+                        type="password"
+                        className="validate"
+                        value={password}
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                        }}
+                      />
+                      <label htmlFor="password">Password</label>
                     </div>
                     <button
-                      class="btn waves-effect waves-light submit-button"
+                      className="btn waves-effect waves-light submit-button"
                       type="submit"
                       name="action"
                     >

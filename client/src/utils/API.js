@@ -18,4 +18,7 @@ export default {
   createResponse: function(responseData) {
     return axios.post("/api/menu", responseData);
   },
+  getUsers: function(email){
+    return axios.get("/api/user/" + email)
+  }
 };
