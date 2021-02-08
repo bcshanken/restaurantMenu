@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Menu from './Containers/Menu/Menu';
 import OrderDetails from './Containers/OrderDetails/OrderDetails';
@@ -8,22 +9,26 @@ import AdminMenu from './Containers/AdminMenu/AdminMenu';
 import NewFood from './Containers/NewFood/NewFood';
 import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login'
+import AlertContext from './utils/alertContext';
 
 
 function App() {
+  const [alert, setAlert] = useState({ message: "", type: "" });
   
   return (
     <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/menu" component={Menu} />
-        <Route exact path="/orderdetail" component={OrderDetails} />
-        <Route exact path="/orders" component={ Orders} />
-        <Route exact path="/product:id" component={ProductDetails}/>
-        <Route exact path="/adminmenu" component={ AdminMenu} />
-        <Route exact path="/newfood" component={ NewFood} />
-        <Route exact path="/adminlogin" component={Login}/>
-      </Switch>
+      <AlertContext.Provider value={{ ...alert, setAlert: setAlert }}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/menu" component={Menu} />
+          <Route exact path="/orderdetail" component={OrderDetails} />
+          <Route exact path="/orders" component={ Orders} />
+          <Route exact path="/product:id" component={ProductDetails}/>
+          <Route exact path="/adminmenu" component={ AdminMenu} />
+          <Route exact path="/newfood" component={ NewFood} />
+          <Route exact path="/adminlogin" component={Login}/>
+        </Switch>
+      </AlertContext.Provider>
     </Router>
   );
 }
