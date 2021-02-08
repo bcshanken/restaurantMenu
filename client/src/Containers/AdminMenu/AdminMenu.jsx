@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 import API from "../../utils/API";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -75,7 +76,8 @@ const AdminMenu = () => {
 </td>
                     <td>{category}</td>
                     <td>${price}</td>
-                    <td><FontAwesomeIcon icon={faEdit} /></td>
+                    <td><Link to={`/updatefood/${_id}`}><FontAwesomeIcon icon={faEdit} /></Link>
+                    </td>
                     <td><FontAwesomeIcon icon={faTrash} onClick={() => handleDelete(_id)} /></td>
                   </tr>
                 )
