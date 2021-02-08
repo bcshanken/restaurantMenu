@@ -44,7 +44,12 @@ const ProductDetails = (props) => {
       specialInstructions,
     };
     orderItems.push(orderItem);
-    localStorage.setItem("order", JSON.stringify(orderItems));
+    try {
+      localStorage.setItem("order", JSON.stringify(orderItems));
+    } catch (err) {
+      //user has local storage disabled or too many order items
+      console.log(err);
+    }
   };
 
   return (
