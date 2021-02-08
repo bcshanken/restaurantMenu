@@ -1,6 +1,6 @@
 .product-details-wrapper .img-wrapper {
-  width: 100%; /* width of container */
-  height: 25vh; /* height of container */
+  width: 100%;
+  height: 25vh;
   overflow: hidden;
   position: relative;
 }
