@@ -12,12 +12,15 @@ const ProductDetails = (props) => {
 
   useEffect(() => {
     const initializeProductDetails = async () => {
-      //TODO: add catch block
-      const menuItemResponse = await API.getItem(props.match.params.id);
-      setMenuItem(menuItemResponse.data);
+      try {
+        const menuItemResponse = await API.getItem(props.match.params.id);
+        setMenuItem(menuItemResponse.data);
+        const menuResponse = await API.getMenu();
+        setMenu(menuResponse.data);
 
-      const menuResponse = await API.getMenu();
-      setMenu(menuResponse.data);
+      } catch (err) {
+        console.log(err);
+      }
     };
 
     initializeProductDetails();
@@ -35,7 +38,7 @@ const ProductDetails = (props) => {
   const addToClientOrder = () => {
     console.log(addOns);
     console.log(specialInstructions);
-  }
+  };
 
   return (
     <>
@@ -44,11 +47,13 @@ const ProductDetails = (props) => {
         <div className="img-wrapper">
           <img src={menuItem.img} alt="place holder"></img>
         </div>
+        
         <section>
           <h1 className="product-details-title">{menuItem.title}</h1>
           <p className="product-details-description">{menuItem.description}</p>
           <strong className="product-details-price">{menuItem.price}</strong>
         </section>
+
         <section>
           <h1 className="product-details-title">Add Ons</h1>
           {menu.map((menuItem) =>
@@ -62,6 +67,7 @@ const ProductDetails = (props) => {
             ) : null
           )}
         </section>
+
         <div className="input-field">
           <textarea
             id="special-instructions"
@@ -73,7 +79,9 @@ const ProductDetails = (props) => {
           <label htmlFor="special-instructions">Special instructions</label>
         </div>
 
-        <button className="product-details-submit" onClick={addToClientOrder}>Add to order</button>
+        <button className="product-details-submit" onClick={addToClientOrder}>
+          Add to order
+        </button>
       </main>
     </>
   );
