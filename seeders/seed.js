@@ -26,7 +26,7 @@ let menuSeed = [
     {
         title: "Tortellini & Shrimp Skewers",
         description: "Grilled shrimp and tortellini filled with cheese and smoked peppers. Served with a Sun-Dried Tomato Sauce.",
-        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1612276299/Aquaman/Fried-Pickles_ayogug.jpg",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1612276476/Aquaman/Tortellini-Shrimp-Skewers_zm76yw.jpg",
         price: "7.50",
         category: "Appetizer",
     },
@@ -61,7 +61,7 @@ let menuSeed = [
     {
         title: "Epic Fish Tacos",
         description: "Grilled Mahi Mahi tacos served on tasted tortillas, cabbage, and fresh cilantro topped with a baja sauce.",
-        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1612277439/Aquaman/Blackened-Salmon_azh4ci.jpg",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1612277705/Aquaman/Fish-Tacos_ulflcj.jpg",
         price: "12.75",
         category: "Entree",
     },
