@@ -47,7 +47,7 @@ const Menu = () => {
 
   return (
     <>
-    <NavHomeCheckout/>
+    <NavAdminCheckout/>
       <MenuFilter
         menuCategories={menuCategories}
         handleClick={filterMenuByCategory}
