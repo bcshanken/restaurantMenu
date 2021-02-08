@@ -1,8 +1,11 @@
 import React from "react";
+import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import "../Login/Login.css"
 
 const Login = () => {
   return (
+    <>
+    <NavHomeOnly/>
     <div className="container login-card">
       <div className="row">
         <div className="col s12 m6">
@@ -37,6 +40,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
