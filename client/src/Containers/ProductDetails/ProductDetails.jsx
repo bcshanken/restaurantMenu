@@ -8,6 +8,7 @@ const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState({});
   const [menu, setMenu] = useState([]);
   const [addOns, setAddOns] = useState([]);
+  const [specialInstructions, setSpecialInstructions] = useState("");
 
   useEffect(() => {
     const initializeProductDetails = async () => {
@@ -30,6 +31,11 @@ const ProductDetails = (props) => {
         )
       : setAddOns([...addOns, addOn]);
   };
+
+  const addToClientOrder = () => {
+    console.log(addOns);
+    console.log(specialInstructions);
+  }
 
   return (
     <>
@@ -60,11 +66,14 @@ const ProductDetails = (props) => {
           <textarea
             id="special-instructions"
             className="materialize-textarea"
+            onChange={(e) => {
+              setSpecialInstructions(e.target.value);
+            }}
           ></textarea>
           <label htmlFor="special-instructions">Special instructions</label>
         </div>
 
-        <button className="product-details-submit">Add to order</button>
+        <button className="product-details-submit" onClick={addToClientOrder}>Add to order</button>
       </main>
     </>
   );
