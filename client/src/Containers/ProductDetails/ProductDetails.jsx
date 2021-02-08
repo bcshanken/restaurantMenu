@@ -17,7 +17,6 @@ const ProductDetails = (props) => {
         setMenuItem(menuItemResponse.data);
         const menuResponse = await API.getMenu();
         setMenu(menuResponse.data);
-
       } catch (err) {
         console.log(err);
       }
@@ -36,8 +35,16 @@ const ProductDetails = (props) => {
   };
 
   const addToClientOrder = () => {
-    console.log(addOns);
-    console.log(specialInstructions);
+    const orderItems = localStorage.getItem("order")
+      ? JSON.parse(localStorage.getItem("order"))
+      : [];
+    const orderItem = {
+      menuItem,
+      addOns,
+      specialInstructions,
+    };
+    orderItems.push(orderItem);
+    localStorage.setItem("order", JSON.stringify(orderItems));
   };
 
   return (
@@ -47,7 +54,7 @@ const ProductDetails = (props) => {
         <div className="img-wrapper">
           <img src={menuItem.img} alt="place holder"></img>
         </div>
-        
+
         <section>
           <h1 className="product-details-title">{menuItem.title}</h1>
           <p className="product-details-description">{menuItem.description}</p>
