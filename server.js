@@ -31,6 +31,14 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+// FIXME: Actually check the database for user and match credentials.
+app.post("/api/user", (req, res) => {
+  res.json({
+    message: "Successfully signed in.",
+    token: "banana",
+  });
+});
+
 app.use(routes);
 
 app.get("*", (req, res) => {
