@@ -23,9 +23,6 @@ export default {
     return axios.put("/api/menu/" + id, responseData);
   },
   getUsers: function(email) {
-    return axios.get("/api/user/" + email)
-  },
-  postUser: function(responseData) {
-    return axios.post("/api/user", responseData);
+    return axios.post("/api/user/" + email)
   }
 };

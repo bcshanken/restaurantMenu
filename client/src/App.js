@@ -9,8 +9,10 @@ import AdminMenu from './Containers/AdminMenu/AdminMenu';
 import NewFood from './Containers/NewFood/NewFood';
 import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login'
+import UpdateFood from './Containers/UpdateFood/UpdateFood';
 import AlertContext from './utils/alertContext';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
+
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
           <ProtectedRoute exact path="/adminmenu" component={ AdminMenu} token={token}/>
           <ProtectedRoute exact path="/newfood" component={ NewFood} token={token}/>
           <Route exact path="/adminlogin" component={(props) => <Login {...props} setToken={setToken} />}/>
+          <Route exact path="/updatefood/:id" component={UpdateFood}/>
         </Switch>
       </AlertContext.Provider>
     </Router>
