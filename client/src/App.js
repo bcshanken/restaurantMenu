@@ -30,8 +30,8 @@ function App() {
           <Route exact path="/product:id" component={ProductDetails}/>
           <ProtectedRoute exact path="/adminmenu" component={ AdminMenu} token={token}/>
           <ProtectedRoute exact path="/newfood" component={ NewFood} token={token}/>
+          <ProtectedRoute exact path="/updatefood/:id" component={UpdateFood} token={token}/>
           <Route exact path="/adminlogin" component={(props) => <Login {...props} setToken={setToken} />}/>
-          <Route exact path="/updatefood/:id" component={UpdateFood}/>
         </Switch>
       </AlertContext.Provider>
     </Router>
