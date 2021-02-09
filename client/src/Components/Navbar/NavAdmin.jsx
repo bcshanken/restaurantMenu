@@ -7,14 +7,18 @@ const NavAdmin = () => {
     <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper">
-      
-              <NavLink className="left nav-link" to="/adminmenu">My Menu</NavLink>
-            
-              <NavLink to="/" className="brand-logo center">
+
+              <NavLink to="/" className="brand-logo admin-logo left">
                 Poseidon's Catch
               </NavLink>
-
+      
+              <NavLink className="right nav-link" to="/adminmenu">My Menu</NavLink>
+          
               <NavLink className="right nav-link" to="/newfood">New Food</NavLink>
+
+              <NavLink className="right nav-link" to="/orders">Orders</NavLink>
+          
+              <NavLink className="right nav-link" to="/orderdetail">OrderDetails</NavLink>
         </div>
       </nav>
     </div>
