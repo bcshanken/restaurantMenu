@@ -1,5 +1,5 @@
 import React from "react";
-import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
+import NavAdmin from "../../Components/Navbar/NavAdmin";
 import OrderCard from "../../Components/OrderCard/OrderCard"
 import "../Orders/Orders.css"
 
@@ -24,7 +24,7 @@ const Orders = () => {
 
   return (
     <>
-    <NavHomeOnly/>
+    <NavAdmin/>
     <div className="order-wrapper">
       {orders.map((orderItems, index) => {
           <h1>{orderItems.title}</h1>

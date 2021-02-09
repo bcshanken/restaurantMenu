@@ -1,10 +1,10 @@
 import React from 'react';
-import NavHomeOnly from '../../Components/Navbar/NavHomeOnly';
+import NavAdmin from '../../Components/Navbar/NavAdmin';
 
 const OrderDetails = () => {
     return (
         <>
-        <NavHomeOnly/>
+        <NavAdmin/>
         <div>
             orders page
         </div>
