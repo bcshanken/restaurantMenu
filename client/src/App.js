@@ -10,10 +10,12 @@ import NewFood from './Containers/NewFood/NewFood';
 import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login'
 import AlertContext from './utils/alertContext';
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 
 
 function App() {
   const [alert, setAlert] = useState({ message: "", type: "" });
+  const [token, setToken] = useState("");
   
   return (
     <Router>
@@ -24,9 +26,9 @@ function App() {
           <Route exact path="/orderdetail" component={OrderDetails} />
           <Route exact path="/orders" component={ Orders} />
           <Route exact path="/product:id" component={ProductDetails}/>
-          <Route exact path="/adminmenu" component={ AdminMenu} />
-          <Route exact path="/newfood" component={ NewFood} />
-          <Route exact path="/adminlogin" component={Login}/>
+          <ProtectedRoute exact path="/adminmenu" component={ AdminMenu} token={token}/>
+          <ProtectedRoute exact path="/newfood" component={ NewFood} token={token}/>
+          <Route exact path="/adminlogin" component={(props) => <Login {...props} setToken={setToken} />}/>
         </Switch>
       </AlertContext.Provider>
     </Router>

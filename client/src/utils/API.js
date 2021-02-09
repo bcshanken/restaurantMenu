@@ -24,5 +24,8 @@ export default {
   },
   getUsers: function(email) {
     return axios.get("/api/user/" + email)
+  },
+  postUser: function(responseData) {
+    return axios.post("/api/user", responseData);
   }
 };
