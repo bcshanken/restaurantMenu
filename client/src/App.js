@@ -8,6 +8,7 @@ import AdminMenu from './Containers/AdminMenu/AdminMenu';
 import NewFood from './Containers/NewFood/NewFood';
 import Home from './Containers/Home/Home';
 import Login from './Containers/Login/Login'
+import UpdateFood from './Containers/UpdateFood/UpdateFood';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route exact path="/adminmenu" component={ AdminMenu} />
         <Route exact path="/newfood" component={ NewFood} />
         <Route exact path="/adminlogin" component={Login}/>
+        <Route exact path="/updatefood/:id" component={UpdateFood}/>
       </Switch>
     </Router>
   );
