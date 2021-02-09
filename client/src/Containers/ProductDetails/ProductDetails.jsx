@@ -42,6 +42,7 @@ const ProductDetails = (props) => {
       menuItem,
       addOns,
       specialInstructions,
+      createdAt : Date.now(),
     };
     orderItems.push(orderItem);
     try {
