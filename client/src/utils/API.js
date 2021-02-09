@@ -18,8 +18,11 @@ export default {
   createResponse: function(responseData) {
     return axios.post("/api/menu", responseData);
   },
-   // Updates a book in the database
-   updateResponse: function(responseData, id) {
+  // Updates a book in the database
+  updateResponse: function(responseData, id) {
     return axios.put("/api/menu/" + id, responseData);
   },
+  getUsers: function(email) {
+    return axios.get("/api/user/" + email)
+  }
 };

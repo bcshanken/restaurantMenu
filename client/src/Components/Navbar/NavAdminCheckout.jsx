@@ -2,21 +2,25 @@ import React from "react";
 import "../Navbar/Nav.css";
 import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 
-const NavHomeOnly = () => {
+const NavHomeCheckout = () => {
   return (
     <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper">
       
-            <NavLink className="left nav-link" to="/menu">
-                <FontAwesomeIcon icon={faHome} />
+            <NavLink className="left nav-link" to="/adminlogin">
+                <FontAwesomeIcon icon={faUserAlt} />
             </NavLink>
             
             <NavLink to="/" className="brand-logo center">
                 Poseidon's Catch
             </NavLink>
+
+            <ul id="nav-mobile" className="right nav-link">
+                <FontAwesomeIcon icon={faShoppingCart} />
+            </ul>
             
         </div>
       </nav>
@@ -24,4 +28,4 @@ const NavHomeOnly = () => {
   );
 };
 
-export default NavHomeOnly;
+export default NavHomeCheckout;
