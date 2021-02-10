@@ -10,10 +10,14 @@ import InstructionsInput from "../../Components/InstructionsInput/InstructionsIn
 const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState({});
   const [menu, setMenu] = useState([]);
+
   const [addOns, setAddOns] = useState([]);
   const [specialInstructions, setSpecialInstructions] = useState("");
+  const [orderItems, setOrderItems] = useState(
+    JSON.parse(localStorage.getItem("order")) || []
+  );
 
-  const location = useLocation()
+  const location = useLocation();
 
   useEffect(() => {
     const initializeProductDetails = async () => {
@@ -33,6 +37,14 @@ const ProductDetails = (props) => {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    try {
+      localStorage.setItem("order", JSON.stringify(orderItems));
+    } catch (err) {
+      console.log(err);
+    }
+  }, [orderItems]);
+
   const toggleAddOn = (addOn, isAdded) => {
     isAdded
       ? setAddOns(
@@ -42,23 +54,13 @@ const ProductDetails = (props) => {
   };
 
   const addToClientOrder = () => {
-    const orderItems = localStorage.getItem("order")
-      ? JSON.parse(localStorage.getItem("order"))
-      : [];
     const orderItem = {
       menuItem,
       addOns,
       specialInstructions,
-      createdAt : Date.now(),
+      createdAt: Date.now(),
     };
-    orderItems.push(orderItem);
-    try {
-      localStorage.setItem("order", JSON.stringify(orderItems));
-    } catch (err) {
-      //user has local storage disabled or too many order items
-      console.log(err);
-    }
-    
+    setOrderItems([...orderItems, orderItem]);
   };
 
   return (
@@ -82,16 +84,23 @@ const ProductDetails = (props) => {
             menuItem.category === "Dessert" ? (
               <AddOn
                 {...menuItem}
-                key={menuItem._id}
+                isAddedOnClientOrder={false}
                 handleClick={toggleAddOn}
+                key={menuItem._id}
               />
             ) : null
           )}
         </section>
 
-        <InstructionsInput value={specialInstructions} handleChange={setSpecialInstructions}/>
+        <InstructionsInput
+          value={specialInstructions}
+          handleChange={setSpecialInstructions}
+        />
 
-        <ProductDetailsButton text="Add to order" handleClick={addToClientOrder}/>
+        <ProductDetailsButton
+          text="Add to order"
+          handleClick={addToClientOrder}
+        />
       </main>
     </>
   );
