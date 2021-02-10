@@ -6,7 +6,7 @@ const NewUser = () => {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
-    
+
     return (
         <>
         <NavAdmin />
@@ -19,6 +19,28 @@ const NewUser = () => {
                 <div className="row">
                   <form className="col s12" onSubmit={handleFormSubmit}>
                     <div className="row">
+                    <div className="input-field col s12">
+                        <input
+                          id="firstName"
+                          type="firstName"
+                          value={firstName}
+                          onChange={(e) => {
+                            setFirstName(e.target.value);
+                          }}
+                        />
+                        <label htmlFor="email">Email</label>
+                      </div>
+                      <div className="input-field col s12">
+                        <input
+                          id="lastName"
+                          type="lastName"
+                          value={lastName}
+                          onChange={(e) => {
+                            setLastName(e.target.value);
+                          }}
+                        />
+                        <label htmlFor="email">Email</label>
+                      </div>
                       <div className="input-field col s12">
                         <input
                           id="email"
