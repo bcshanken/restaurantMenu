@@ -4,8 +4,9 @@ import API from "../../utils/API";
 import AddOn from "../../Components/AddOn/AddOn";
 import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import { useLocation, useParams } from "react-router-dom";
-import ProductDetailsButton from "../../Components/ProductDetailsButton/ProductDetailsButton";
+import ProductDetailsSubmit from "../../Components/ProductDetailsSubmit/ProductDetailsSubmit";
 import InstructionsInput from "../../Components/InstructionsInput/InstructionsInput";
+import ProductDetailsDelete from "../../Components/ProductDetailsDelete/ProductDetailsDelete";
 
 const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState({});
@@ -83,8 +84,13 @@ const ProductDetails = (props) => {
       (e) => e.createdAt === orderItem.createdAt
     );
     temp[indexToEdit] = orderItemToEdit;
-
     setOrderItems([...temp]);
+  };
+
+  const removeFromClientOrder = () => {
+    setOrderItems(
+      orderItems.filter((e) => e.createdAt !== orderItem.createdAt)
+    );
   };
 
   return (
@@ -123,11 +129,15 @@ const ProductDetails = (props) => {
           handleChange={setSpecialInstructions}
         />
 
-        <ProductDetailsButton
-          text={orderItem ? "Edit Order" : "Add to order"}
+        <ProductDetailsSubmit
+          text={orderItem ? "Edit item" : "Add to order"}
           pushTo={orderItem ? "/checkout" : "/menu"}
           handleClick={orderItem ? editClientOrder : addToClientOrder}
         />
+
+        {orderItem ? (
+          <ProductDetailsDelete handleClick={removeFromClientOrder} />
+        ) : null}
       </main>
     </>
   );

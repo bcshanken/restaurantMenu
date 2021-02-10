@@ -1,8 +1,8 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import "./ProductDetailsButton.css";
+import "./ProductDetailsSubmit.css";
 
-const ProductDetailsButton = ({ text, handleClick }) => {
+const ProductDetailsSubmit = ({ text, handleClick }) => {
   const history = useHistory();
 
   return (
@@ -18,4 +18,4 @@ const ProductDetailsButton = ({ text, handleClick }) => {
   );
 };
 
-export default ProductDetailsButton;
+export default ProductDetailsSubmit;
