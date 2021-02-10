@@ -3,12 +3,15 @@ import "./ProductDetails.css";
 import API from "../../utils/API";
 import AddOn from "../../Components/AddOn/AddOn";
 import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
+import { useLocation } from "react-router-dom";
 
 const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState({});
   const [menu, setMenu] = useState([]);
   const [addOns, setAddOns] = useState([]);
   const [specialInstructions, setSpecialInstructions] = useState("");
+
+  const location = useLocation()
 
   useEffect(() => {
     const initializeProductDetails = async () => {
@@ -21,6 +24,8 @@ const ProductDetails = (props) => {
         console.log(err);
       }
     };
+
+    console.log(location);
 
     initializeProductDetails();
     // eslint-disable-next-line
@@ -51,6 +56,7 @@ const ProductDetails = (props) => {
       //user has local storage disabled or too many order items
       console.log(err);
     }
+    
   };
 
   return (
