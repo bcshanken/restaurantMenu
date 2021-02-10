@@ -21,11 +21,11 @@ const NewFood = (props) => {
     <NavAdmin/>
     <div className="container">
       <div className="row">
-        <div className="col sm12">
-          <h1 className="center-align">Add a New Product</h1>
+        <div className="col s12">
+          <h1 className="center-align formHead">Add a New Product</h1>
         </div>
       </div>
-      <div className="row">
+      <div className="row adminMenu">
         <MenuForm handleFormSubmit={handleFormSubmit} buttonText="Create New Item"/>
 
         

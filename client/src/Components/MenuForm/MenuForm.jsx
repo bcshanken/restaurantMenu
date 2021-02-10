@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import API from "../../utils/API";
+import "./MenuForm.css";
 
-const MenuForm = ({buttonText, handleFormSubmit }) => {
+const MenuForm = ({ buttonText, handleFormSubmit }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [img, setImg] = useState("");
@@ -16,7 +17,7 @@ const MenuForm = ({buttonText, handleFormSubmit }) => {
     if (id) {
       API.getItem(id).then((response) => {
         console.log(response.data);
-       
+
         setTitle(response.data.title);
         setDescription(response.data.description);
         setImg(response.data.img);
@@ -93,7 +94,7 @@ const MenuForm = ({buttonText, handleFormSubmit }) => {
         </div>
         <div className="input-field col s12">
           <input
-            placeholder="description"
+            placeholder="Description"
             id="description"
             type="text"
             className="validate"
