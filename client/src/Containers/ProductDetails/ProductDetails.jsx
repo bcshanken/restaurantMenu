@@ -5,6 +5,7 @@ import AddOn from "../../Components/AddOn/AddOn";
 import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import { useLocation } from "react-router-dom";
 import ProductDetailsButton from "../../Components/ProductDetailsButton/ProductDetailsButton";
+import InstructionsInput from "../../Components/InstructionsInput/InstructionsInput";
 
 const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState({});
@@ -88,16 +89,7 @@ const ProductDetails = (props) => {
           )}
         </section>
 
-        <div className="input-field">
-          <textarea
-            id="special-instructions"
-            className="materialize-textarea"
-            onChange={(e) => {
-              setSpecialInstructions(e.target.value);
-            }}
-          ></textarea>
-          <label htmlFor="special-instructions">Special instructions</label>
-        </div>
+        <InstructionsInput value={specialInstructions} handleChange={setSpecialInstructions}/>
 
         <ProductDetailsButton text="Add to order" handleClick={addToClientOrder}/>
       </main>
