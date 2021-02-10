@@ -2,7 +2,7 @@ import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import React, { useState } from "react";
 import {useHistory} from "react-router-dom"
 import "../Login/Login.css";
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import axios from "axios";
 
 const Login = ({setToken}) => {
@@ -13,7 +13,7 @@ const Login = ({setToken}) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("/api/user", { email, password })
+      .post("/api/auth/login", { email, password })
       .then((response) => {
         console.log(response.data);
         setToken(response.data.token);
@@ -21,6 +21,7 @@ const Login = ({setToken}) => {
       })
       .catch((err) => {
         console.log(err);
+        console.log("Incorrect");
       });
   };
 
