@@ -1,0 +1,91 @@
+.checkout-item-card {
+  margin: 12px;
+  padding: 0px 12px 6px 12px;
+  border-radius: 15px;
+
+  background: #1c6e8c;
+}
+
+.checkout-item-wrapper {
+  padding: 12px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.checkout-item-title {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #ffffff;
+}
+
+.checkout-item-price {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+
+  color: #ffffff;
+}
+
+.checkout-item-add-on-wrapper {
+  padding: 0px 0px 0px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.checkout-item-add-on-title {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 21px;
+
+  color: #c7d6d5;
+}
+
+.checkout-item-add-on-price {
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 21px;
+
+  color: #c7d6d5;
+}
+
+.checkout-item-bottom-wrapper {
+  padding: 8px 0px 0px 0px;
+  margin: 6px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  border-top: 1px solid #38809A;
+}
+
+.checkout-item-edit {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 19px;
+
+  color: #71CB84;
+}
+
+.checkout-item-edit-icon {
+  margin: 0px 5px 0px 0px;
+}
+
+.checkout-item-total {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 19px;
+
+  color: #ffffff;
+}
