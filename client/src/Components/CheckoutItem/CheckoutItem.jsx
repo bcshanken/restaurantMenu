@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
-const CheckoutItem = ({ menuItem, addOns, createdAt}) => {
+const CheckoutItem = ({ menuItem, addOns, specialInstructions, createdAt }) => {
   const calculateTotal = () => {
     let total = parseFloat(menuItem.price);
     addOns.forEach((addOn) => {
@@ -20,7 +20,7 @@ const CheckoutItem = ({ menuItem, addOns, createdAt}) => {
         <span className="checkout-item-price">{menuItem.price}</span>
       </div>
       {addOns.map((addOn) => (
-        <div className="checkout-item-add-on-wrapper" key={addOn.title}>
+        <div className="checkout-item-add-on-wrapper" key={addOn._id}>
           <span className="checkout-item-add-on-title">{addOn.title}</span>
           <span className="checkout-item-add-on-price">{addOn.price}</span>
         </div>
@@ -29,7 +29,7 @@ const CheckoutItem = ({ menuItem, addOns, createdAt}) => {
         <NavLink
           to={{
             pathname: `/product${menuItem._id}`,
-            state: { orderItemId: createdAt },
+            state: { menuItem, addOns, specialInstructions, createdAt },
           }}
           className="checkout-item-edit"
         >

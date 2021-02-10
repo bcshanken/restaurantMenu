@@ -3,7 +3,7 @@ import "./ProductDetails.css";
 import API from "../../utils/API";
 import AddOn from "../../Components/AddOn/AddOn";
 import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import ProductDetailsButton from "../../Components/ProductDetailsButton/ProductDetailsButton";
 import InstructionsInput from "../../Components/InstructionsInput/InstructionsInput";
 
@@ -17,12 +17,13 @@ const ProductDetails = (props) => {
     JSON.parse(localStorage.getItem("order")) || []
   );
 
-  const location = useLocation();
+  const params = useParams();
+  const { state: orderItem } = useLocation();
 
   useEffect(() => {
     const initializeProductDetails = async () => {
       try {
-        const menuItemResponse = await API.getItem(props.match.params.id);
+        const menuItemResponse = await API.getItem(params.id);
         setMenuItem(menuItemResponse.data);
         const menuResponse = await API.getMenu();
         setMenu(menuResponse.data);
@@ -31,9 +32,15 @@ const ProductDetails = (props) => {
       }
     };
 
-    console.log(location);
+    const initializeOrderItem = () => {
+      if (orderItem) {
+        setSpecialInstructions(orderItem.specialInstructions);
+        setAddOns(orderItem.addOns);
+      }
+    };
 
     initializeProductDetails();
+    initializeOrderItem();
     // eslint-disable-next-line
   }, []);
 
@@ -54,13 +61,30 @@ const ProductDetails = (props) => {
   };
 
   const addToClientOrder = () => {
-    const orderItem = {
+    const orderItemToAdd = {
       menuItem,
       addOns,
       specialInstructions,
       createdAt: Date.now(),
     };
-    setOrderItems([...orderItems, orderItem]);
+    setOrderItems([...orderItems, orderItemToAdd]);
+  };
+
+  const editClientOrder = () => {
+    const orderItemToEdit = {
+      menuItem,
+      addOns,
+      specialInstructions,
+      createdAt: orderItem.createdAt,
+    };
+
+    const temp = orderItems;
+    const indexToEdit = orderItems.findIndex(
+      (e) => e.createdAt === orderItem.createdAt
+    );
+    temp[indexToEdit] = orderItemToEdit;
+
+    setOrderItems([...temp]);
   };
 
   return (
@@ -84,7 +108,9 @@ const ProductDetails = (props) => {
             menuItem.category === "Dessert" ? (
               <AddOn
                 {...menuItem}
-                isAddedOnClientOrder={false}
+                isAddedOnClientOrder={addOns.some(
+                  (addOn) => addOn._id === menuItem._id
+                )}
                 handleClick={toggleAddOn}
                 key={menuItem._id}
               />
@@ -98,8 +124,9 @@ const ProductDetails = (props) => {
         />
 
         <ProductDetailsButton
-          text="Add to order"
-          handleClick={addToClientOrder}
+          text={orderItem ? "Edit Order" : "Add to order"}
+          pushTo={orderItem ? "/checkout" : "/menu"}
+          handleClick={orderItem ? editClientOrder : addToClientOrder}
         />
       </main>
     </>
