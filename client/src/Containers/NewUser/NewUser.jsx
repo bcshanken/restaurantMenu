@@ -1,11 +1,29 @@
 import React, { useState } from 'react';
 import NavAdmin from "../../Components/Navbar/NavAdmin"
+import axios from "axios"
+import {useHistory} from "react-router-dom"
 
 const NewUser = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
+
+    const history = useHistory()
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        axios
+          .post("/api/auth/", { firstName, lastName, email, password })
+          .then((response) => {
+            console.log(response.data);
+            history.push("/adminmenu");
+          })
+          .catch((err) => {
+            console.log(err);
+            console.log("Incorrect");
+          });
+      };
 
     return (
         <>
@@ -21,25 +39,27 @@ const NewUser = () => {
                     <div className="row">
                     <div className="input-field col s12">
                         <input
-                          id="firstName"
-                          type="firstName"
+                          id="first_name"
+                          type="text"
+                          className="validate"
                           value={firstName}
                           onChange={(e) => {
                             setFirstName(e.target.value);
                           }}
                         />
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="firstName">First Name</label>
                       </div>
                       <div className="input-field col s12">
                         <input
-                          id="lastName"
-                          type="lastName"
+                          id="last_name"
+                          type="text"
+                          className="validate"
                           value={lastName}
                           onChange={(e) => {
                             setLastName(e.target.value);
                           }}
                         />
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="lastName">Last Name</label>
                       </div>
                       <div className="input-field col s12">
                         <input
@@ -72,7 +92,7 @@ const NewUser = () => {
                         type="submit"
                         name="action"
                       >
-                        Sign In
+                        Create User
                       </button>
                     </div>
                   </form>

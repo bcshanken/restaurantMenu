@@ -20,7 +20,7 @@ const NavAdmin = () => {
           
               <NavLink className="right nav-link" to="/orderdetail">OrderDetails</NavLink>
 
-              <NavLink className="right nav-link" to="/newuser">OrderDetails</NavLink>
+              <NavLink className="right nav-link" to="/newuser">Add New User</NavLink>
 
         </div>
       </nav>
