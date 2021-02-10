@@ -13,6 +13,7 @@ import UpdateFood from './Containers/UpdateFood/UpdateFood';
 import AlertContext from './utils/alertContext';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import Checkout from './Containers/Checkout/Checkout';
+import NewUser from './Containers/NewUser/NewUser';
 
 function App() {
   const [alert, setAlert] = useState({ message: "", type: "" });
@@ -30,6 +31,7 @@ function App() {
           <ProtectedRoute exact path="/adminmenu" component={ AdminMenu} token={token}/>
           <ProtectedRoute exact path="/newfood" component={ NewFood} token={token}/>
           <ProtectedRoute exact path="/updatefood/:id" component={UpdateFood} token={token}/>
+          <ProtectedRoute exact path="/newuser" component={NewUser} token={token}/>
           <Route exact path="/adminlogin" component={(props) => <Login {...props} setToken={setToken} />}/>
           <Route exact path="/checkout" component={Checkout} />
         </Switch>
