@@ -78,21 +78,3 @@
   border-bottom: 1px solid #c7d6d5;
   box-shadow: 0 1px 0 0 #c7d6d5;
 }
-
-.product-details-submit {
-  padding: 10px;
-  border: none;
-  border-radius: 7px;
-  display: block;
-  margin: 24px auto;
-
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  text-align: center;
-
-  color: #ffffff;
-  background: #da9553;
-}

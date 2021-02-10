@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import AddOn from "../../Components/AddOn/AddOn";
 import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import { useLocation } from "react-router-dom";
+import ProductDetailsButton from "../../Components/ProductDetailsButton/ProductDetailsButton";
 
 const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState({});
@@ -98,9 +99,7 @@ const ProductDetails = (props) => {
           <label htmlFor="special-instructions">Special instructions</label>
         </div>
 
-        <button className="product-details-submit" onClick={addToClientOrder}>
-          Add to order
-        </button>
+        <ProductDetailsButton text="Add to order" handleClick={addToClientOrder}/>
       </main>
     </>
   );
