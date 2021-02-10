@@ -3,6 +3,8 @@ import NavAdmin from "../../Components/Navbar/NavAdmin"
 
 const NewUser = () => {
     return (
+        <>
+        <NavAdmin />
         <div className="container login-card">
         <div className="row">
           <div className="col s12 m6">
@@ -53,6 +55,7 @@ const NewUser = () => {
           </div>
         </div>
       </div>
+      </>
     );
 };
 
