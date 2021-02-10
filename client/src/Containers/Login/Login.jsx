@@ -2,19 +2,27 @@ import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import React, { useState } from "react";
 import {useHistory} from "react-router-dom"
 import "../Login/Login.css";
-import API from "../../utils/API";
+// import API from "../../utils/API";
+import axios from "axios";
 
-const Login = () => {
+const Login = ({setToken}) => {
     const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    API.getUsers(email).then((response) => {
-      console.log(response.data);
-      history.push("/adminmenu")
-    });
+    axios
+      .post("/api/auth/login", { email, password })
+      .then((response) => {
+        console.log(response.data);
+        setToken(response.data.token);
+        history.push("/adminmenu");
+      })
+      .catch((err) => {
+        console.log(err);
+        console.log("Incorrect");
+      });
   };
 
   return (

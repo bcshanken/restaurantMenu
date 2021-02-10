@@ -31,6 +31,10 @@ connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
 
+const AuthController = require("./controllers/authController");
+
+app.use("/api/auth", AuthController);
+
 app.use(routes);
 
 app.get("*", (req, res) => {
