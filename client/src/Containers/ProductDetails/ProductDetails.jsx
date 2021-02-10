@@ -3,17 +3,28 @@ import "./ProductDetails.css";
 import API from "../../utils/API";
 import AddOn from "../../Components/AddOn/AddOn";
 import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
+import { useLocation, useParams } from "react-router-dom";
+import ProductDetailsSubmit from "../../Components/ProductDetailsSubmit/ProductDetailsSubmit";
+import InstructionsInput from "../../Components/InstructionsInput/InstructionsInput";
+import ProductDetailsDelete from "../../Components/ProductDetailsDelete/ProductDetailsDelete";
 
 const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState({});
   const [menu, setMenu] = useState([]);
+
   const [addOns, setAddOns] = useState([]);
   const [specialInstructions, setSpecialInstructions] = useState("");
+  const [orderItems, setOrderItems] = useState(
+    JSON.parse(localStorage.getItem("order")) || []
+  );
+
+  const params = useParams();
+  const { state: orderItem } = useLocation();
 
   useEffect(() => {
     const initializeProductDetails = async () => {
       try {
-        const menuItemResponse = await API.getItem(props.match.params.id);
+        const menuItemResponse = await API.getItem(params.id);
         setMenuItem(menuItemResponse.data);
         const menuResponse = await API.getMenu();
         setMenu(menuResponse.data);
@@ -22,9 +33,25 @@ const ProductDetails = (props) => {
       }
     };
 
+    const initializeOrderItem = () => {
+      if (orderItem) {
+        setSpecialInstructions(orderItem.specialInstructions);
+        setAddOns(orderItem.addOns);
+      }
+    };
+
     initializeProductDetails();
+    initializeOrderItem();
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("order", JSON.stringify(orderItems));
+    } catch (err) {
+      console.log(err);
+    }
+  }, [orderItems]);
 
   const toggleAddOn = (addOn, isAdded) => {
     isAdded
@@ -35,22 +62,35 @@ const ProductDetails = (props) => {
   };
 
   const addToClientOrder = () => {
-    const orderItems = localStorage.getItem("order")
-      ? JSON.parse(localStorage.getItem("order"))
-      : [];
-    const orderItem = {
+    const orderItemToAdd = {
       menuItem,
       addOns,
       specialInstructions,
-      createdAt : Date.now(),
+      createdAt: Date.now(),
     };
-    orderItems.push(orderItem);
-    try {
-      localStorage.setItem("order", JSON.stringify(orderItems));
-    } catch (err) {
-      //user has local storage disabled or too many order items
-      console.log(err);
-    }
+    setOrderItems([...orderItems, orderItemToAdd]);
+  };
+
+  const editClientOrder = () => {
+    const orderItemToEdit = {
+      menuItem,
+      addOns,
+      specialInstructions,
+      createdAt: orderItem.createdAt,
+    };
+
+    const temp = orderItems;
+    const indexToEdit = orderItems.findIndex(
+      (e) => e.createdAt === orderItem.createdAt
+    );
+    temp[indexToEdit] = orderItemToEdit;
+    setOrderItems([...temp]);
+  };
+
+  const removeFromClientOrder = () => {
+    setOrderItems(
+      orderItems.filter((e) => e.createdAt !== orderItem.createdAt)
+    );
   };
 
   return (
@@ -74,27 +114,30 @@ const ProductDetails = (props) => {
             menuItem.category === "Dessert" ? (
               <AddOn
                 {...menuItem}
-                key={menuItem._id}
+                isAddedOnClientOrder={addOns.some(
+                  (addOn) => addOn._id === menuItem._id
+                )}
                 handleClick={toggleAddOn}
+                key={menuItem._id}
               />
             ) : null
           )}
         </section>
 
-        <div className="input-field">
-          <textarea
-            id="special-instructions"
-            className="materialize-textarea"
-            onChange={(e) => {
-              setSpecialInstructions(e.target.value);
-            }}
-          ></textarea>
-          <label htmlFor="special-instructions">Special instructions</label>
-        </div>
+        <InstructionsInput
+          value={specialInstructions}
+          handleChange={setSpecialInstructions}
+        />
 
-        <button className="product-details-submit" onClick={addToClientOrder}>
-          Add to order
-        </button>
+        <ProductDetailsSubmit
+          text={orderItem ? "Edit item" : "Add to order"}
+          pushTo={orderItem ? "/checkout" : "/menu"}
+          handleClick={orderItem ? editClientOrder : addToClientOrder}
+        />
+
+        {orderItem ? (
+          <ProductDetailsDelete handleClick={removeFromClientOrder} />
+        ) : null}
       </main>
     </>
   );

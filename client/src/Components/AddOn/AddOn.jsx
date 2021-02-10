@@ -4,8 +4,8 @@ import { faSquare, faCheckSquare } from "@fortawesome/free-regular-svg-icons";
 
 import "./AddOn.css";
 
-const AddOn = ({ title, price, _id, handleClick }) => {
-  const [isAdded, setIsAdded] = useState(false);
+const AddOn = ({ title, price, _id, isAddedOnClientOrder, handleClick }) => {
+  const [isAdded, setIsAdded] = useState(isAddedOnClientOrder);
 
   return (
     <button

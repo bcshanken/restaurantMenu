@@ -1,0 +1,17 @@
+.product-details-submit {
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+    display: block;
+    margin: 24px auto;
+  
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+  
+    color: #ffffff;
+    background: #da9553;
+  }
