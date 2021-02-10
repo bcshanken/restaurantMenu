@@ -7,6 +7,8 @@ router.post("/", (req, res) => {
   bcrypt.hash(req.body.password, 10).then((hashedPassword) => {
     console.log(hashedPassword);
     const newUser = {
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       password: hashedPassword,
     };
