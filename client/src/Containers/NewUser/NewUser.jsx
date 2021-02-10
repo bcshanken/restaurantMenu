@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavAdmin from "../../Components/Navbar/NavAdmin"
 
 const NewUser = () => {
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("")
+    
     return (
         <>
         <NavAdmin />
