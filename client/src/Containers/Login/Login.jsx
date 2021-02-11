@@ -5,6 +5,7 @@ import "../Login/Login.css";
 // import API from "../../utils/API";
 import axios from "axios";
 import AlertContext from "../../utils/alertContext";
+import jwt from "jsonwebtoken";
 
 const Login = ({setToken}) => {
     
@@ -20,8 +21,18 @@ const Login = ({setToken}) => {
       .post("/api/auth/login", { email, password })
       .then((response) => {
         console.log(response.data);
-        setToken(response.data.token);
-        history.push("/adminmenu");
+        jwt.verify(
+          response.data.token,
+          process.env.REACT_APP_JWT_SIGNATURE,
+          (err, decoded) => {
+            if (err) {
+              console.log(err);
+            } else {
+              setToken(response.data.token);
+              history.push("/adminmenu");
+            }
+          }
+        );
       })
       .catch((err) => {
         console.log(err);
