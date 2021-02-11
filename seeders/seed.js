@@ -149,6 +149,34 @@ let menuSeed = [
         price: "4.50",
         category: "Dessert",
     },
+    {
+        title: "Citrus Salad",
+        description: "It stars all the beautiful, vibrant citrus: tangy grapefruit, navel oranges, and sweet blood oranges. They’re drizzled with a zingy dressing, then topped crushed pistachios and fresh mint.",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1613007478/Aquaman/Citrus-Salad_uoz0dy.jpg",
+        price: "3.00",
+        category: "Side",
+    },
+    {
+        title: "Smoked Gouda Mac",
+        description: "Ooey, gooey mac and cheese is the perfect comfort food.",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1613007478/Aquaman/Smoked-Gouda-Mac_cufddc.jpg",
+        price: "3.00",
+        category: "Side",
+    },
+    {
+        title: "Southwest Sweet Potatoes",
+        description: "Start with a baked sweet potato. Then add black bean salsa, corn, and drizzle with creamy cilantro sauce!",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1613007478/Aquaman/SouthWest-Sweet-Potatoes_qtfxve.jpg",
+        price: "3.00",
+        category: "Side",
+    },
+    {
+        title: "Tossed Salad",
+        description: "This salad features a rainbow of veggies: radishes, carrots, red and green onion, and tangy jarred pepperoncini. Add your choice of dressing: Honey Mustard, Balsamic Vinaigrette, House Caesar.",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1613007478/Aquaman/Tossed-Salad_zmlusg.jpg",
+        price: "3.00",
+        category: "Side",
+    },
 ]
 
 let userSeed = [
