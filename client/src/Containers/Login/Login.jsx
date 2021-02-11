@@ -1,14 +1,18 @@
 import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {useHistory} from "react-router-dom"
 import "../Login/Login.css";
 // import API from "../../utils/API";
 import axios from "axios";
+import AlertContext from "../../utils/alertContext";
 
 const Login = ({setToken}) => {
-    const history = useHistory();
+    
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const alert = useContext(AlertContext);
+  const history = useHistory();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +25,10 @@ const Login = ({setToken}) => {
       })
       .catch((err) => {
         console.log(err);
-        console.log("Incorrect");
+        alert.setAlert({
+          message: "Incorrect Username or Password please try again!",
+          type: "danger",
+        });
       });
   };
 
@@ -71,6 +78,7 @@ const Login = ({setToken}) => {
                       Sign In
                     </button>
                   </div>
+                  <p className="center-align">{alert.message}</p>
                 </form>
               </div>
             </div>

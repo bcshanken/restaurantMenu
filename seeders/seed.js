@@ -153,10 +153,8 @@ let menuSeed = [
 
 let userSeed = [
     {
-        firstName: "Damian",
-        lastName: "Campbell",
-        email: "dcampbell7095@gmail.com",
-        password: "camcam24"
+        email: "pc@test.com",
+        password: "$2b$10$Gks6Vx.2pMSqEaRCPuxESO0QEW/wWmMwOHE8nrN8tqgTrYgiitJUa"
     }
 ]
 
