@@ -9,6 +9,7 @@ router.use("/order", orderRoutes);
 // Menu routes
 router.use("/menu", menuRoutes);
 
+// User Routes
 router.use("/user", userRoutes)
 
 module.exports = router;

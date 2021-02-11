@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -32,6 +33,10 @@ connection.on("error", (err) => {
 });
 
 const AuthController = require("./controllers/authController");
+
+app.get("/api/config", (req, res) => {
+  res.json({ success: true });
+});
 
 app.use("/api/auth", AuthController);
 
