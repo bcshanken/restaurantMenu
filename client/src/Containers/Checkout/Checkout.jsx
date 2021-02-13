@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CheckoutItem from "../../Components/CheckoutItem/CheckoutItem";
-import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
+import UserNav from "../../Components/Navbar/UserNav";
 
 const Checkout = () => {
   const [orderItems, setOrderItems] = useState(
@@ -9,9 +9,9 @@ const Checkout = () => {
 
   return (
     <div>
-      <NavHomeOnly />
+      <UserNav />
       {orderItems.map((orderItem) => (
-        <CheckoutItem {...orderItem} key={orderItem.createdAt}/>
+        <CheckoutItem {...orderItem} key={orderItem.createdAt} />
       ))}
     </div>
   );
