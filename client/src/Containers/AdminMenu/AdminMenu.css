@@ -20,3 +20,8 @@
 .menuDesc {
     color: #c7d6d5;
 }
+
+.menuFilterButtons {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}

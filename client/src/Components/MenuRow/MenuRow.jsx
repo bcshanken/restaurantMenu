@@ -10,7 +10,7 @@ const MenuRow = ({ title, description, img, price, _id, category, handleDelete})
     return (
         <tr key={_id}>
                     <td>{title}</td>
-                    <td class="menuDesc">{description}</td>
+                    <td className="menuDesc">{description}</td>
                     <td><img
                         src={img}
                         alt={title}
@@ -19,9 +19,9 @@ const MenuRow = ({ title, description, img, price, _id, category, handleDelete})
 </td>
                     <td>{category}</td>
                     <td>${price}</td>
-                    <td  class="menuIcon"><Link to={`/updatefood/${_id}`}><FontAwesomeIcon icon={faEdit} className="iconlink"/></Link>
+                    <td  className="menuIcon"><Link to={`/updatefood/${_id}`}><FontAwesomeIcon icon={faEdit} className="iconlink"/></Link>
                     </td>
-                    <td  class="menuIcon"><FontAwesomeIcon icon={faTrash}  onClick={() => handleDelete(_id)} /></td>
+                    <td  className="menuIcon"><FontAwesomeIcon icon={faTrash}  onClick={() => handleDelete(_id)} /></td>
                   </tr>
     );
 };
