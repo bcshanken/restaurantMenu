@@ -3,8 +3,10 @@ import React from "react";
 const OrderCard = ({title, price}) => {
   return (
     <div className="card-content">
-      <span className="card-title">{title}</span>
-      <strong>{price}</strong>
+      {title.map((newTitle) => (
+      <span className="card-title">{newTitle}</span>
+      ))}
+        <strong className="card-title orders-strong">{price}</strong>
     </div>
   );
 };

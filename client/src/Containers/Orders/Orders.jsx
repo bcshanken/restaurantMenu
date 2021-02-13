@@ -6,32 +6,43 @@ import "../Orders/Orders.css"
 const Orders = () => {
   const orders = [
     {
-      title: "#001",
-      content: [
+      orderID: "001",
+      items: [
         {
-          imageUrl: "http://placehold.it/300x300",
-          title: "Salmon",
-          price: 19.99,
+          title: ["fish", " tacos"],
+          description: "tacos",
+          details: "Good",
+          price: ["3.99", " 25.00"],
         },
+        
+      ],
+      status: "Cooking",
+    },
+
+    {
+      orderID: "002",
+      items: [
         {
-          imageUrl: "http://placehold.it/300x300",
-          title: "Jerk Chicken Pasta",
-          price: 19.99,
+          title: ["tacos", "fish"],
+          description: "fish",
+          details: "fishy fish",
+          price: ["25.00", " 3.99"],
         },
       ],
-    },
-  ];
+      status: "Cooking",
+    }
+  ]
 
   return (
     <>
     <NavAdmin/>
     <div className="order-wrapper">
       {orders.map((orderItems, index) => {
-          <h1>{orderItems.title}</h1>
+          <h1>{orderItems.orderID}</h1>
         return (
           <div className="card horizontal order-category-wrapper order-card">
               <div className="card-stacked">
-            {orderItems.content.map((order) => {
+            {orderItems.items.map((order) => {
               return (
                 <>
                     <OrderCard {...order}/>
