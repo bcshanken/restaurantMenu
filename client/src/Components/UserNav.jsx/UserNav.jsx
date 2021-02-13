@@ -15,18 +15,18 @@ const UserNav = () => {
     <div className="navbar-fixed">
       <nav>
         <div className="nav-wrapper">
-          {pathname === "/menu" ? (
-            <NavLink to="/adminlogin" className="left nav-link">
+          {pathname === "/" ? (
+            <NavLink to="/login" className="left nav-link">
               <FontAwesomeIcon icon={faUserAlt} size="lg" />
             </NavLink>
           ) : (
-            <NavLink to="/menu" className="left nav-link">
+            <NavLink to="/" className="left nav-link">
               <FontAwesomeIcon icon={faHome} size="lg" />
             </NavLink>
           )}
 
           <span className="brand-logo center">POSEIDON'S CATCH</span>
-          {pathname.includes("/product") || pathname === "/menu" ? (
+          {pathname.includes("/item") || pathname === "/" ? (
             <NavLink to="/checkout" className="right nav-link">
               <FontAwesomeIcon icon={faShoppingCart} size="lg" />
             </NavLink>

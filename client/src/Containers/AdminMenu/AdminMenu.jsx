@@ -41,7 +41,7 @@ const AdminMenu = () => {
               <h1 className="center-align">Admin Menu</h1>
             </div>
             <div className="col s12">
-              <Link to="/newfood">
+              <Link to="/admin/menu/add">
                 <button className="btn waves-effect waves-light submit-button">
                   Create New Food
                 </button>

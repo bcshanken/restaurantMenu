@@ -12,7 +12,7 @@ const NewFood = (props) => {
         API.createResponse({title, description, img, price, category})
         .then((response) => {
             console.log(response.data);
-            props.history.push("/adminmenu")
+            props.history.push("/admin/menu")
           })
     }
 

@@ -12,16 +12,16 @@ const AdminNav = () => {
       <div className="nav-content">
         <ul className="tabs tabs-transparent">
           <li className="tab">
-            <NavLink to="/adminmenu">My Menu</NavLink>
+            <NavLink to="/admin/menu">My Menu</NavLink>
           </li>
           <li className="tab">
-            <NavLink to="/newfood">Add Product</NavLink>
+            <NavLink to="/admin/menu/add">Add Menu Item</NavLink>
           </li>
           <li className="tab">
-            <NavLink to="/orders">Orders</NavLink>
+            <NavLink to="/admin/orders">Orders</NavLink>
           </li>
           <li className="tab">
-            <NavLink to="/newuser">Add User</NavLink>
+            <NavLink to="/admin/create-user">Create User</NavLink>
           </li>
         </ul>
       </div>

@@ -8,7 +8,7 @@ import InstructionsInput from "../../Components/InstructionsInput/InstructionsIn
 import ProductDetailsDelete from "../../Components/ProductDetailsDelete/ProductDetailsDelete";
 import UserNav from "../../Components/UserNav.jsx/UserNav";
 
-const ProductDetails = (props) => {
+const ProductDetails = () => {
   const [menuItem, setMenuItem] = useState({});
   const [menu, setMenu] = useState([]);
 

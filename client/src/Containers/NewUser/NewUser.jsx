@@ -17,7 +17,7 @@ const NewUser = () => {
           .post("/api/auth/", { firstName, lastName, email, password })
           .then((response) => {
             console.log(response.data);
-            history.push("/adminmenu");
+            history.push("/admin/menu");
           })
           .catch((err) => {
             console.log(err);

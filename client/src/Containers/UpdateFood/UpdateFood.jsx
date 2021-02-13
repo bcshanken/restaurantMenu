@@ -13,7 +13,7 @@ const UpdateFood = (props) => {
         API.updateResponse({title,details,img, price, category}, id)
         .then((response) => {
             console.log(response.data);
-            props.history.push("/adminmenu")
+            props.history.push("/admin/menu")
           })
         }
     return (
