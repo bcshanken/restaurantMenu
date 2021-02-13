@@ -24,12 +24,12 @@ function App() {
         <Switch>
           <Route exact path="/" component={Menu} />
           <Route exact path="/item/:id" component={ProductDetails}/>
-          <Route exact path="/admin/order/:id" component={OrderDetails} token={token}/>
-          <Route exact path="/admin/orders" component={ Orders} token={token}/>
-          <Route exact path="/admin/menu" component={ AdminMenu} token={token}/>
-          <Route exact path="/admin/menu/add" component={ NewFood} token={token}/>
-          <Route exact path="/admin/menu/update/:id" component={UpdateFood} token={token}/>
-          <Route exact path="/admin/create-user" component={NewUser} token={token}/>
+          <ProtectedRoute exact path="/admin/order/:id" component={OrderDetails} token={token}/>
+          <ProtectedRoute exact path="/admin/orders" component={ Orders} token={token}/>
+          <ProtectedRoute exact path="/admin/menu" component={ AdminMenu} token={token}/>
+          <ProtectedRoute exact path="/admin/menu/add" component={ NewFood} token={token}/>
+          <ProtectedRoute exact path="/admin/menu/update/:id" component={UpdateFood} token={token}/>
+          <ProtectedRoute exact path="/admin/create-user" component={NewUser} token={token}/>
           <Route exact path="/login" component={(props) => <Login {...props} setToken={setToken} />}/>
           <Route exact path="/checkout" component={Checkout} />
         </Switch>
