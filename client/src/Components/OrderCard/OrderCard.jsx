@@ -1,7 +1,7 @@
 import React from "react";
-import "../OrderCard/OrderCard.css"
+import "../OrderCard/OrderCard.css";
 
-const OrderCard = ({ title, price, desc, details }) => {
+const OrderCard = ({ title, price, desc, details, _id }) => {
   return (
     <div className="card-content orders-card-wrapper">
       <div className="col s6 input-field">
@@ -13,7 +13,7 @@ const OrderCard = ({ title, price, desc, details }) => {
           //   setCategory(e.target.value);
           // }}
         >
-          <option value="" selected>
+          <option defaultValue={"Pending"}>
             Status
           </option>
           <option value="Pending">Pending</option>
@@ -24,10 +24,14 @@ const OrderCard = ({ title, price, desc, details }) => {
       </div>
       {title.map((newTitle) => {
         return (
-          <>
-            <span className="card-title orders-title">{newTitle}</span>
-            <span className="card-title orders-detail">{details}</span>
-          </>
+          <React.Fragment key={newTitle}>
+            <div key={newTitle}>
+              <span className="card-title orders-title">
+                {newTitle}
+              </span>
+              <span className="card-title orders-detail">{details}</span>
+            </div>
+          </React.Fragment>
         );
       })}
 
