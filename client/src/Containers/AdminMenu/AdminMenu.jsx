@@ -49,7 +49,7 @@ const AdminMenu = () => {
             </div>
           </div>
           <div className="row">
-            <div classname="col s12">
+            <div className="col s12">
               <table>
                 <thead>
                   <tr>
