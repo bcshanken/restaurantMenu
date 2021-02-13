@@ -6,7 +6,7 @@ import { useLocation, useParams } from "react-router-dom";
 import ProductDetailsSubmit from "../../Components/ProductDetailsSubmit/ProductDetailsSubmit";
 import InstructionsInput from "../../Components/InstructionsInput/InstructionsInput";
 import ProductDetailsDelete from "../../Components/ProductDetailsDelete/ProductDetailsDelete";
-import UserNav from "../../Components/Navbar/UserNav";
+import UserNav from "../../Components/UserNav.jsx/UserNav";
 
 const ProductDetails = (props) => {
   const [menuItem, setMenuItem] = useState({});

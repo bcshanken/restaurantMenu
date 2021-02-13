@@ -1,10 +1,10 @@
 import React from 'react';
-import NavAdmin from '../../Components/Navbar/NavAdmin';
+import AdminNav from '../../Components/AdminNav.jsx/AdminNav';
 
 const OrderDetails = () => {
     return (
         <>
-        <NavAdmin/>
+        <AdminNav/>
         <div>
             orders page
         </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CheckoutItem from "../../Components/CheckoutItem/CheckoutItem";
-import UserNav from "../../Components/Navbar/UserNav";
+import UserNav from "../../Components/UserNav.jsx/UserNav";
 
 const Checkout = () => {
   const [orderItems, setOrderItems] = useState(

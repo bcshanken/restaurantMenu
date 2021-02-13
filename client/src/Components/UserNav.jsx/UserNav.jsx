@@ -6,6 +6,7 @@ import {
   faUserAlt,
   faHome,
 } from "@fortawesome/free-solid-svg-icons";
+import "./UserNav.css"
 
 const UserNav = () => {
   const { pathname } = useLocation();

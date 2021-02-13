@@ -5,7 +5,7 @@ import "../Login/Login.css";
 import axios from "axios";
 import AlertContext from "../../utils/alertContext";
 import jwt from "jsonwebtoken";
-import UserNav from "../../Components/Navbar/UserNav";
+import UserNav from "../../Components/UserNav.jsx/UserNav";
 
 const Login = ({setToken}) => {
     

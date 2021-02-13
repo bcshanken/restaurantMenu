@@ -1,6 +1,5 @@
 import React from "react";
-import "../Navbar/Nav.css";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
   return (
@@ -24,7 +23,7 @@ const Nav = () => {
               <NavLink to="/orders">Orders</NavLink>
             </li>
           </ul>
-          <a href="#" className="brand-logo center">
+          <a href="/" className="brand-logo center">
             Poseidon's Catch
           </a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">

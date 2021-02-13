@@ -1,8 +1,8 @@
 import React from 'react';
+import AdminNav from '../../Components/AdminNav.jsx/AdminNav';
 
 
 import MenuForm from "../../Components/MenuForm/MenuForm";
-import NavAdmin from "../../Components/Navbar/NavAdmin";
 import API from "../../utils/API";
 
 const UpdateFood = (props) => {
@@ -18,7 +18,7 @@ const UpdateFood = (props) => {
         }
     return (
         <>
-    <NavAdmin/>
+    <AdminNav/>
     <div className="container">
       <div className="row">
         <div className="col s12">

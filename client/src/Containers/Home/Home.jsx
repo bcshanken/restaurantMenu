@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from '../../Components/Navbar/Nav';
+import Nav from '../../Components/UserNav.jsx/Nav';
 
 const Home = (props) => {
     return (

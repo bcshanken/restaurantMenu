@@ -3,7 +3,7 @@ import "./Menu.css";
 import MenuItem from "../../Components/MenuItem/MenuItem";
 import MenuFilter from "../../Components/MenuFilter/MenuFilter";
 import API from "../../utils/API";
-import UserNav from "../../Components/Navbar/UserNav";
+import UserNav from "../../Components/UserNav.jsx/UserNav";
 import AlertContext from "../../utils/alertContext";
 
 const Menu = () => {

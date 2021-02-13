@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import API from "../../utils/API";
 
-import NavAdmin from "../../Components/Navbar/NavAdmin";
 import "./AdminMenu.css";
 import MenuRow from "../../Components/MenuRow/MenuRow";
+import AdminNav from "../../Components/AdminNav.jsx/AdminNav";
 
 const AdminMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
@@ -33,7 +33,7 @@ const AdminMenu = () => {
 
   return (
     <>
-      <NavAdmin />
+      <AdminNav />
       <div className="container">
         <div className="adminMenu">
           <div className="row">

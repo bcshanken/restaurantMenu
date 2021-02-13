@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import NavAdmin from "../../Components/Navbar/NavAdmin"
 import axios from "axios"
 import {useHistory} from "react-router-dom"
+import AdminNav from '../../Components/AdminNav.jsx/AdminNav';
 
 const NewUser = () => {
     const [firstName, setFirstName] = useState("");
@@ -27,7 +27,7 @@ const NewUser = () => {
 
     return (
         <>
-        <NavAdmin />
+        <AdminNav />
         <div className="container login-card">
         <div className="row">
           <div className="col s12 m6">

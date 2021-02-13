@@ -1,7 +1,7 @@
 import React from "react";
-import NavAdmin from "../../Components/Navbar/NavAdmin";
 import API from "../../utils/API";
 import MenuForm from "../../Components/MenuForm/MenuForm"
+import AdminNav from "../../Components/AdminNav.jsx/AdminNav";
 
 const NewFood = (props) => {
 
@@ -18,7 +18,7 @@ const NewFood = (props) => {
 
   return (
     <>
-    <NavAdmin/>
+    <AdminNav/>
     <div className="container">
       <div className="row">
         <div className="col s12">
