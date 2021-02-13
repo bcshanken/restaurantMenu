@@ -1,0 +1,31 @@
+#message-wrapper{
+    text-align: center;
+}
+
+#circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin: 20vh auto 20px auto;
+  width: 200px;
+  height: 200px;
+
+  border-radius: 100%;
+  background-color: #42596b;
+}
+
+#empty-cart-message {
+  font-family: "Roboto", sans-serif;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #ffffff;
+}
+
+#cart-icon {
+  transform: translate(-8px, 6px);
+  display: block;
+  color: #c4c4c4;
+}
