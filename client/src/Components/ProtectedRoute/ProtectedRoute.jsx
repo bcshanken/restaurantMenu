@@ -12,7 +12,7 @@ const ProtectedRoute = ({ component: Component, token, ...rest }) => {
           return (
             <Redirect
               to={{
-                pathname: "/adminlogin",
+                pathname: "/login",
                 state: {
                   from: props.location,
                 },
