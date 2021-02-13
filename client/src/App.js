@@ -25,7 +25,7 @@ function App() {
           <Route exact path="/" component={Menu} />
           <Route exact path="/item/:id" component={ProductDetails}/>
           <ProtectedRoute exact path="/admin/order/:id" component={OrderDetails} token={token}/>
-          <ProtectedRoute exact path="/admin/orders" component={ Orders} token={token}/>
+          <Route exact path="/admin/orders" component={ Orders} token={token}/>
           <ProtectedRoute exact path="/admin/menu" component={ AdminMenu} token={token}/>
           <ProtectedRoute exact path="/admin/menu/add" component={ NewFood} token={token}/>
           <ProtectedRoute exact path="/admin/menu/update/:id" component={UpdateFood} token={token}/>
