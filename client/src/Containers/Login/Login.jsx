@@ -1,4 +1,3 @@
-import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import React, { useState, useContext } from "react";
 import {useHistory} from "react-router-dom"
 import "../Login/Login.css";
@@ -6,6 +5,7 @@ import "../Login/Login.css";
 import axios from "axios";
 import AlertContext from "../../utils/alertContext";
 import jwt from "jsonwebtoken";
+import UserNav from "../../Components/UserNav.jsx/UserNav";
 
 const Login = ({setToken}) => {
     
@@ -45,7 +45,7 @@ const Login = ({setToken}) => {
 
   return (
     <>
-    <NavHomeOnly/>
+    <UserNav/>
     <div className="container login-card">
       <div className="row">
         <div className="col s12 m6">

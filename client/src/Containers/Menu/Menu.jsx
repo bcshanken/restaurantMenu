@@ -3,7 +3,7 @@ import "./Menu.css";
 import MenuItem from "../../Components/MenuItem/MenuItem";
 import MenuFilter from "../../Components/MenuFilter/MenuFilter";
 import API from "../../utils/API";
-import NavAdminCheckout from "../../Components/Navbar/NavAdminCheckout";
+import UserNav from "../../Components/UserNav.jsx/UserNav";
 import AlertContext from "../../utils/alertContext";
 
 const Menu = () => {
@@ -47,7 +47,7 @@ const Menu = () => {
 
   return (
     <>
-    <NavAdminCheckout/>
+    <UserNav/>
       <MenuFilter
         menuCategories={menuCategories}
         handleClick={filterMenuByCategory}

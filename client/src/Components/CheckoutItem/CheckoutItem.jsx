@@ -28,7 +28,7 @@ const CheckoutItem = ({ menuItem, addOns, specialInstructions, createdAt }) => {
       <div className="checkout-item-bottom-wrapper">
         <NavLink
           to={{
-            pathname: `/product${menuItem._id}`,
+            pathname: `/item/${menuItem._id}`,
             state: { menuItem, addOns, specialInstructions, createdAt },
           }}
           className="checkout-item-edit"

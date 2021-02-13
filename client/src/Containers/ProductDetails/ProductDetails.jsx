@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import "./ProductDetails.css";
 import API from "../../utils/API";
 import AddOn from "../../Components/AddOn/AddOn";
-import NavHomeOnly from "../../Components/Navbar/NavHomeOnly";
 import { useLocation, useParams } from "react-router-dom";
 import ProductDetailsSubmit from "../../Components/ProductDetailsSubmit/ProductDetailsSubmit";
 import InstructionsInput from "../../Components/InstructionsInput/InstructionsInput";
 import ProductDetailsDelete from "../../Components/ProductDetailsDelete/ProductDetailsDelete";
+import UserNav from "../../Components/UserNav.jsx/UserNav";
 
-const ProductDetails = (props) => {
+const ProductDetails = () => {
   const [menuItem, setMenuItem] = useState({});
   const [menu, setMenu] = useState([]);
 
@@ -95,7 +95,7 @@ const ProductDetails = (props) => {
 
   return (
     <>
-      <NavHomeOnly />
+      <UserNav />
       <main className="product-details-wrapper">
         <div className="img-wrapper">
           <img src={menuItem.img} alt="place holder"></img>
