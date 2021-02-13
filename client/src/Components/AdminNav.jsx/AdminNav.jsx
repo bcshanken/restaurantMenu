@@ -5,7 +5,7 @@ const AdminNav = () => {
   return (
     <nav className="nav-extended">
       <div className="nav-wrapper">
-        <NavLink to="/menu" className="brand-logo">
+        <NavLink to="/" className="brand-logo">
           POSEIDON'S CATCH
         </NavLink>
       </div>
