@@ -8,7 +8,7 @@ autoIncrement.initialize(mongoose.connection);
 const orderSchema = new Schema({
   orderID: { type: Schema.Types.ObjectId, required: true},
   items: [{
-    title:{ type: String, required: true},
+    title:[{ type: String, required: true}],
     desc:{ type: String, required: true},
     details: { type: String, required: true},
     price: { type: String, required: true},

@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/restaurant-menu
 let orders =[
     {
       items: [{
-          title: "Tacos",
+          title: ["Tacos", "Fish"],
           desc: "Tacooooo Tuesday!",
           details: "These Are Good",
           price: "$15.00"
