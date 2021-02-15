@@ -131,7 +131,7 @@ const AdminMenu = () => {
                   {displayMenuItems.map(
                     ({ _id, title, description, price, img, category }) => (
                       <MenuRow
-                        key={_id}
+                        _id={_id}
                         title={title}
                         description={description}
                         price={price}
