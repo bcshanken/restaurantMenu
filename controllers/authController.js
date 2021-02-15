@@ -56,6 +56,9 @@ router.post("/login", (req, res) => {
         res.status(401).end();
       }
     });
+  }).catch((err) => {
+    console.log(err);
+    res.status(401).end();
   });
 });
 

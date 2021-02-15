@@ -29,7 +29,7 @@ const Login = ({setToken}) => {
               console.log(err);
             } else {
               setToken(response.data.token);
-              history.push("/adminmenu");
+              history.push("/admin/orders");
             }
           }
         );

@@ -8,6 +8,8 @@ import AdminNav from "../../Components/AdminNav.jsx/AdminNav";
 
 const AdminMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
+  const [displayMenuItems, setDisplayMenuItems] = useState([]);
+
 
   useEffect(() => {
     initializeMenu();
@@ -16,8 +18,8 @@ const AdminMenu = () => {
   const initializeMenu = () => {
     API.getMenu()
       .then((response) => {
-        console.log(response.data);
         setMenuItems(response.data);
+        setDisplayMenuItems(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -25,11 +27,15 @@ const AdminMenu = () => {
   };
 
   const handleDelete = (id) => {
-    console.log(id);
     API.deleteResponse(id)
       .then((res) => initializeMenu())
       .catch((err) => console.log(err));
   };
+
+  const handleReset = () => {
+    setDisplayMenuItems(menuItems);
+  };
+
 
   return (
     <>
@@ -40,16 +46,74 @@ const AdminMenu = () => {
             <div className="col s12">
               <h1 className="center-align">Admin Menu</h1>
             </div>
-            <div className="col s12">
-              <Link to="/admin/menu/add">
-                <button className="btn waves-effect waves-light submit-button">
-                  Create New Food
+            <div className="row center-align">
+              <div className="col s3 menuFilterButtons">
+                <Link to="/newfood">
+                  <button className="btn waves-effect waves-light submit-button">
+                    Create New Food
+                  </button>
+                </Link>
+              </div>
+              <div className="col s3 input-field">
+                <input
+                  id="searchTerm"
+                  type="text"
+                  className="validate"
+                  name="searchTerm"
+                  placeholder="Search Names"
+                 
+                  onChange={(e) => {
+                  
+                    let searchVar = "";
+                    searchVar = searchVar.concat(e.target.value)
+                    console.log(searchVar);
+                    const searchedItems = menuItems.filter(
+                      (item) => {
+                        return item.title.toLowerCase().includes(searchVar.toLowerCase());
+                      }
+                    );
+                    setDisplayMenuItems(searchedItems);
+                  }}
+                ></input>
+              </div>
+              <div className="col s3 input-field">
+                <select
+                  id="filterTerm"
+                  className="browser-default"
+                  name="category"
+
+                  onChange={(e) => {
+                    
+
+                    const filteredItems = menuItems.filter(
+                      (item) => {
+                        return item.category.includes(e.target.value);
+                      }
+                    );
+                    setDisplayMenuItems(filteredItems);
+                  }}
+                >
+                  <option value="" selected>
+                    Category
+                  </option>
+                  <option value="Appetizer">Appetizer</option>
+                  <option value="Entree">Entree</option>
+                  <option value="Dessert">Dessert</option>
+                  <option value="Side">Side</option>
+                </select>
+              </div>
+              <div className="col s3 menuFilterButtons">
+                <button
+                  className="btn waves-effect waves-light submit-button"
+                  onClick={handleReset}
+                >
+                  Reset Menu
                 </button>
-              </Link>
+              </div>
             </div>
           </div>
           <div className="row">
-            <div classname="col s12">
+            <div className="col s12">
               <table>
                 <thead>
                   <tr>
@@ -64,10 +128,10 @@ const AdminMenu = () => {
                 </thead>
 
                 <tbody>
-                  {menuItems.map(
+                  {displayMenuItems.map(
                     ({ _id, title, description, price, img, category }) => (
                       <MenuRow
-                        _id={_id}
+                        key={_id}
                         title={title}
                         description={description}
                         price={price}
