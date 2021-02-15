@@ -31,7 +31,6 @@ const Orders = () => {
         {orders.map((orderItems) => {;
           return (
             <React.Fragment key={orderItems._id}>
-            <h3>#{orderItems.orderID}</h3>
             <div className="card horizontal order-category-wrapper order-card">
               <div className="card-stacked">
                 {orderItems.items.map((order) => {
