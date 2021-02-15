@@ -22,7 +22,7 @@ const OrderCard = ({ title, price, desc, details, _id }) => {
           <option value="Sent">Sent</option>
         </select>
       </div>
-      {title.map((newTitle) => {
+      {/* {title.map((newTitle) => {
         return (
           <React.Fragment key={newTitle}>
             <div key={newTitle}>
@@ -33,7 +33,7 @@ const OrderCard = ({ title, price, desc, details, _id }) => {
             </div>
           </React.Fragment>
         );
-      })}
+      })} */}
 
       <strong className="card-title orders-text">Subtotoal: $28.99</strong>
     </div>
