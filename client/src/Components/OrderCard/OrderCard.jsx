@@ -14,7 +14,6 @@ const OrderCard = ({ title, price, desc, details, _id, addOns }) => {
               <span className="card-title orders-title">
                 {addOns}
               </span>
-              
             </div>
           </React.Fragment>
         );

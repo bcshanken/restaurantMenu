@@ -16,17 +16,16 @@ let orders = [
     items: [
       {
         title: "Tacos",
-        addOns: ["Fries", "Salad"],
+        addOns: ["Fries", " Salad"],
         details: "These Are Good",
       },
       {
         title: "Fish",
-        addOns: ["Fries", "Salad"],
+        addOns: ["Salad", " Fries"],
         details: "These Are Good",
       },
     ],
     status: "Pending",
-    date: Date.now(),
     price: 23.00,
   },
 ];
