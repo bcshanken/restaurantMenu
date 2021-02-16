@@ -12,7 +12,7 @@ const OrderCard = ({ title, price, desc, details, _id, addOns }) => {
                 {newTitle}
               </span>
               <span className="card-title orders-title">
-                {addOns}
+                Add On: {addOns}
               </span>
               <strong className="card-title orders-text">Customer Details: {details} </strong>
             </div>
