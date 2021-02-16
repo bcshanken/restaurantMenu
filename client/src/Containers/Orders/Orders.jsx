@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import AdminNav from "../../Components/AdminNav.jsx/AdminNav";
 import OrderCard from "../../Components/OrderCard/OrderCard";
