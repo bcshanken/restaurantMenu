@@ -4,8 +4,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 import { NavLink } from "react-router-dom";
 
-const CheckoutItem = ({ menuItem, addOns, specialInstructions, createdAt }) => {
-  const calculateTotal = () => {
+const CheckoutItem = ({
+  menuItem,
+  addOns,
+  specialInstructions,
+  createdAt,
+}) => {
+  const calculateCost = () => {
     let total = parseFloat(menuItem.price);
     addOns.forEach((addOn) => {
       total += parseFloat(addOn.price);
@@ -39,7 +44,7 @@ const CheckoutItem = ({ menuItem, addOns, specialInstructions, createdAt }) => {
           />
           Edit
         </NavLink>
-        <strong className="checkout-item-total">{calculateTotal()}</strong>
+        <strong className="checkout-item-total">{calculateCost()}</strong>
       </div>
     </div>
   );

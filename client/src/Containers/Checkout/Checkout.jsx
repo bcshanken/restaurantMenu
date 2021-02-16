@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CheckoutItem from "../../Components/CheckoutItem/CheckoutItem";
 import UserNav from "../../Components/UserNav.jsx/UserNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,9 +9,30 @@ const Checkout = () => {
   const [orderItems, setOrderItems] = useState(
     JSON.parse(localStorage.getItem("order")) || []
   );
+  const [orderTotal, setOrderTotal] = useState(0);
+
+  const submitOrder = () => {
+    console.log(orderItems);
+  };
+
+  useEffect(() => {
+    const calculateTotal = () => {
+      let total = 0;
+      orderItems.forEach((orderItem) => {
+        total += parseFloat(orderItem.menuItem.price);
+        orderItem.addOns.forEach((addOn) => {
+          total += parseFloat(addOn.price);
+        });
+      });
+      return total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+    };
+
+    const total = calculateTotal();
+    setOrderTotal(total);
+  }, [orderItems]);
 
   return (
-    <div className="checkout-wrapper">
+    <main id="checkout-wrapper">
       <UserNav />
       {orderItems.length === 0 ? (
         <div id="message-wrapper">
@@ -21,11 +42,19 @@ const Checkout = () => {
           <strong id="empty-cart-message">Your cart is empty</strong>
         </div>
       ) : (
-        orderItems.map((orderItem) => (
-          <CheckoutItem {...orderItem} key={orderItem.createdAt} />
-        ))
+        <>
+          {orderItems.map((orderItem) => (
+            <CheckoutItem {...orderItem} key={orderItem.createdAt} />
+          ))}
+          <footer id="total-wrapper">
+            <button onClick={submitOrder} id="checkout-submit">
+              <span>Place order</span>
+              <span>{orderTotal}</span>
+            </button>
+          </footer>
+        </>
       )}
-    </div>
+    </main>
   );
 };
 
