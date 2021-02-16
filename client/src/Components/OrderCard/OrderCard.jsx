@@ -1,7 +1,7 @@
 import React from "react";
 import "../OrderCard/OrderCard.css";
 
-const OrderCard = ({ title, price, desc, details, _id }) => {
+const OrderCard = ({ title, price, desc, details, _id, addOns }) => {
   return (
     <div className="card-content orders-card-wrapper">
       {title.map((newTitle) => {
@@ -11,6 +11,10 @@ const OrderCard = ({ title, price, desc, details, _id }) => {
               <span className="card-title orders-title">
                 {newTitle}
               </span>
+              <span className="card-title orders-title">
+                {addOns}
+              </span>
+              
             </div>
           </React.Fragment>
         );
