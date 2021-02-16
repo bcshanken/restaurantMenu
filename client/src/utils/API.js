@@ -22,7 +22,7 @@ export default {
   updateResponse: function(responseData, id) {
     return axios.put("/api/menu/" + id, responseData);
   },
-  getUsers: function(email) {
-    return axios.post("/api/user/" + email)
+  getOrders: function() {
+    return axios.get("/api/order")
   }
 };
