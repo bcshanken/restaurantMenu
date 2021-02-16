@@ -31,7 +31,22 @@ const Orders = () => {
             <React.Fragment key={orderItems._id}>
               <div className="card horizontal order-category-wrapper order-card">
                 <div className="card-stacked">
-
+                  <div className="col s6 input-field">
+                    <select
+                      className="browser-default"
+                      name="category"
+                      // value={category}
+                      // onChange={(e) => {
+                      //   setCategory(e.target.value);
+                      // }}
+                    >
+                      <option defaultValue={"Pending"}>Status</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Cooking">Cooking</option>
+                      <option value="Finished">Finished</option>
+                      <option value="Sent">Sent</option>
+                    </select>
+                  </div>
                   {orderItems.items.map((order) => {
                     return (
                       <React.Fragment key={orderItems.orderID}>
