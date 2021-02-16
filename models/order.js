@@ -23,7 +23,7 @@ const orderSchema = new Schema({
     enum: ["pending", "cooking", "finished", "sent"],
     default: "pending",
   },
-  date: { type: Date, default: Date.now },
+  date: { type: Date, default: Date.now() },
 });
 
 orderSchema.plugin(autoIncrement.plugin, "Order");

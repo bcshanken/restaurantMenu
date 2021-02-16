@@ -17,12 +17,12 @@ let orders = [
       {
         title: "Tacos",
         addOns: ["Fries", " Salad"],
-        details: "These Are Good",
+        details: "Hold the sour cream",
       },
       {
         title: "Fish",
         addOns: ["Salad", " Fries"],
-        details: "These Are Good",
+        details: "Light Sear",
       },
     ],
     status: "Pending",
