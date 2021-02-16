@@ -26,6 +26,7 @@ let orders = [
       },
     ],
     status: "Pending",
+    date: Date.now(),
     price: 23.00,
   },
 ];
