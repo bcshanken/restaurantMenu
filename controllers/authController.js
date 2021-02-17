@@ -48,6 +48,16 @@ router.post("/login", (req, res) => {
             expiresIn: 60 * 60,
           }
         );
+
+
+        router.get('/cookie', (req, res) => {
+          res.cookie('token', token, { httpOnly: true });
+          res.json({
+            token: token,
+          });
+        })
+
+
         console.log(token);
         res.json({
           token: token,
