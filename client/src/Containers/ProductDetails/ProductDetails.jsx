@@ -110,8 +110,7 @@ const ProductDetails = () => {
         <section>
           <h1 className="product-details-title">Add Ons</h1>
           {menu.map((menuItem) =>
-            // TODO: menuItem.category === "Side"
-            menuItem.category === "Dessert" ? (
+            menuItem.category === "Side" ? (
               <AddOn
                 {...menuItem}
                 isAddedOnClientOrder={addOns.some(

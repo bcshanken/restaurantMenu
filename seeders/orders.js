@@ -13,21 +13,27 @@ mongoose.connect(
 
 let orders = [
   {
+    price: "18.50",
     items: [
       {
-        title: "Tacos",
-        addOns: ["Fries", " Salad"],
-        details: "Hold the sour cream",
-      },
-      {
-        title: "Fish",
-        addOns: ["Salad", " Fries"],
-        details: "Light Sear",
+        instructions: "Extra crispy",
+        menuItem: "602761f204bc8f768ca41b17",
+        addOns: ["602761f204bc8f768ca41b22"],
       },
     ],
-    status: "Pending",
-    date: Date.now(),
-    price: 23.00,
+  },
+  {
+    price: "18.50",
+    items: [
+      {
+        menuItem: "602761f204bc8f768ca41b0e",
+        addOns: [
+          "602761f204bc8f768ca41b20",
+          "602761f204bc8f768ca41b21",
+          "602761f204bc8f768ca41b1f",
+        ],
+      },
+    ],
   },
 ];
 

@@ -6,27 +6,37 @@ const autoIncrement = require("mongoose-auto-increment");
 autoIncrement.initialize(mongoose.connection);
 
 const orderSchema = new Schema({
-  orderID: { type: Schema.Types.ObjectId, required: true },
   items: [
     {
-      title: [{ type: String, required: true }],
-      addOns: [{ type: String }],
-      details: { type: String },
+      menuItem: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Menu",
+        required: true,
+      },
+      addOns: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Menu",
+        },
+      ],
+      instructions: { type: String },
     },
   ],
-
-  price: { type: String, required: true },
-
   status: {
     type: String,
     required: true,
     enum: ["pending", "cooking", "finished", "sent"],
     default: "pending",
   },
-  date: { type: Date, default: Date.now() },
+  date: { type: Date, default: Date.now },
+  price: { type: String, required: true },
 });
 
-orderSchema.plugin(autoIncrement.plugin, "Order");
+orderSchema.plugin(autoIncrement.plugin, {
+  model: "Order",
+  startAt: 1,
+});
+
 const Order = mongoose.model("Order", orderSchema);
 
 module.exports = Order;
