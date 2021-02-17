@@ -3,16 +3,45 @@ import CheckoutItem from "../../Components/CheckoutItem/CheckoutItem";
 import UserNav from "../../Components/UserNav.jsx/UserNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import API from "../../utils/API";
 import "./Checkout.css";
 
 const Checkout = () => {
   const [orderItems, setOrderItems] = useState(
     JSON.parse(localStorage.getItem("order")) || []
   );
-  const [orderTotal, setOrderTotal] = useState(0);
+  const [orderTotal, setOrderTotal] = useState("");
 
-  const submitOrder = () => {
-    console.log(orderItems);
+  const buildOrder = () => {
+    const order = {
+      price: orderTotal,
+      items: [],
+    };
+
+    orderItems.forEach((orderItem) => {
+      const addOns = [];
+      orderItem.addOns.forEach((addOn) => {
+        addOns.push(addOn._id);
+      });
+
+      order.items.push({
+        menuItem: orderItem.menuItem._id,
+        instructions: orderItem.specialInstructions,
+        addOns: addOns,
+      });
+    });
+
+    return order;
+  };
+
+  const submitOrder = async() => {
+    const order = buildOrder();
+    try {
+      await API.createOrder(order);
+      console.log("order made!")
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
