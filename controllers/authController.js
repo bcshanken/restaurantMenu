@@ -36,39 +36,47 @@ router.post("/", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  User.findOne({ email: req.body.email.toLowerCase() }).then((foundUser) => {
-    console.log(foundUser);
-    bcrypt.compare(req.body.password, foundUser.password).then((result) => {
-      console.log(result);
-      if (result) {
-        const token = jwt.sign(
-          { _id: foundUser._id },
-          process.env.JWT_SIGNATURE,
-          {
-            expiresIn: 60 * 60,
-          }
-        );
-
-
-        router.get('/cookie', (req, res) => {
-          res.cookie('token', token, { httpOnly: true });
+  User.findOne({ email: req.body.email.toLowerCase() })
+    .then((foundUser) => {
+      console.log(foundUser);
+      bcrypt.compare(req.body.password, foundUser.password).then((result) => {
+        console.log(result);
+        if (result) {
+          const token = jwt.sign(
+            { _id: foundUser._id },
+            process.env.JWT_SIGNATURE,
+            {
+              expiresIn: 60 * 60,
+            }
+          );
+          res.cookie("token", token, { httpOnly: true });
+          console.log(token);
           res.json({
             token: token,
           });
-        })
-
-
-        console.log(token);
-        res.json({
-          token: token,
-        });
-      } else {
-        res.status(401).end();
-      }
+        } else {
+          res.status(401).end();
+        }
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(401).end();
     });
-  }).catch((err) => {
-    console.log(err);
-    res.status(401).end();
+});
+
+router.post("/cookie", (req, res) => {
+  console.log(req.cookies.token);
+  jwt.verify(req.cookies.token, process.env.JWT_SIGNATURE, (err, decoded) => {
+    if (err) {
+      res.status(401).end();
+    } else {
+      console.log(decoded);
+      const token = jwt.sign({ _id: decoded._id }, process.env.JWT_SIGNATURE, {
+        expiresIn: 60 * 60,
+      });
+      res.json({ token });
+    }
   });
 });
 
