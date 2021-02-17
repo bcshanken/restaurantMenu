@@ -1,58 +1,62 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import AdminNav from "../../Components/AdminNav.jsx/AdminNav";
 import OrderCard from "../../Components/OrderCard/OrderCard";
+import API from "../../utils/API";
 import "../Orders/Orders.css";
 
 const Orders = () => {
-  const orders = [
-    {
-      orderID: "001",
-      _id: "0001",
-      items: [
-        {
-          title: ["Fish", " Tacos"],
-          description: ["fish", "tacos"],
-          details: ["Good", " pretty good"],
-          price: ["3.99", " 25.00"],
-        },
-      ],
-      status: "Cooking",
-    },
+  const [orders, setOrders] = useState([]);
 
-    {
-      orderID: "002",
-      _id: "0002",
-      items: [
-        {
-          title: ["Pizza", "Hamburger"],
-          description: "fish",
-          details: ["pizzaDeets", " HamburgerDeets"],
-          price: ["25.00", " 3.99"],
-        },
-      ],
-      status: "Cooking",
-    },
-  ];
+  useEffect(() => {
+    initializeOrders();
+    // eslint-disable-next-line
+  }, []);
+
+  const initializeOrders = async () => {
+    try {
+      const response = await API.getOrders();
+      setOrders(response.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
       <AdminNav />
       <div className="order-wrapper">
-        {orders.map((orderItems) => {;
+        {orders.map((orderItems) => {
           return (
             <React.Fragment key={orderItems._id}>
-            <h3>#{orderItems.orderID}</h3>
-            <div className="card horizontal order-category-wrapper order-card">
-              <div className="card-stacked">
-                {orderItems.items.map((order) => {
-                  return (
-                    <React.Fragment key={orderItems.orderID}>
-                      <OrderCard {...order}/>
-                    </React.Fragment>
-                  );
-                })}
+              <div className="card horizontal order-category-wrapper order-card">
+                <div className="card-stacked">
+                  <div className="col s6 input-field">
+                    <select
+                      className="browser-default"
+                      name="category"
+                      // value={category}
+                      // onChange={(e) => {
+                      //   setCategory(e.target.value);
+                      // }}
+                    >
+                      <option defaultValue={"Pending"}>Status</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Cooking">Cooking</option>
+                      <option value="Finished">Finished</option>
+                      <option value="Sent">Sent</option>
+                    </select>
+                  </div>
+                  {orderItems.items.map((order) => {
+                    return (
+                      <React.Fragment key={orderItems.orderID}>
+                        <OrderCard {...order} />
+                      </React.Fragment>
+                    );
+                  })}
+                  <strong className="card-title orders-text">Subtotoal: $28.99</strong>
+                </div>
               </div>
-            </div>
             </React.Fragment>
           );
         })}

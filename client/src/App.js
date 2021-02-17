@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Menu from './Containers/Menu/Menu';
 import OrderDetails from './Containers/OrderDetails/OrderDetails';
@@ -13,10 +13,36 @@ import AlertContext from './utils/alertContext';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import Checkout from './Containers/Checkout/Checkout';
 import NewUser from './Containers/NewUser/NewUser';
+import axios from 'axios';
+import jwt from "jsonwebtoken";
 
 function App() {
   const [alert, setAlert] = useState({ message: "", type: "" });
   const [token, setToken] = useState("");
+  
+  useEffect(() => {
+    
+    const getJwt = async() => {
+      await axios
+      .get("/api/auth/cookie", { token })
+      .then((response) => {
+        console.log(response.data.token);
+        jwt.verify(
+          response.data.token,
+          process.env.REACT_APP_JWT_SIGNATURE,
+          setToken(response.data.token)
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    };
+
+     getJwt();
+ 
+  },[setToken]);
+
+    
   
   return (
     <Router>

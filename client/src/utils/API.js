@@ -22,5 +22,8 @@ export default {
   },
   createOrder: function(order) {
     return axios.post("/api/order", order)
+  },
+  getOrders: function() {
+    return axios.get("/api/order")
   }
 };
