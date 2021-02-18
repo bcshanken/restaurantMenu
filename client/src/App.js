@@ -54,6 +54,11 @@ function App() {
     cb();
   };
 
+  const logout = (cb) => {
+    setToken("");
+    cb();
+  };
+
   if(loading) return null;
 
   return (
