@@ -23,6 +23,9 @@ const AdminNav = () => {
           <li className="tab">
             <NavLink to="/admin/create-user">Create User</NavLink>
           </li>
+          <li className="tab">
+            <NavLink to="/login">Log Out</NavLink>
+          </li>
         </ul>
       </div>
     </nav>
