@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import { NavLink } from "react-router-dom";
 import TokenContext from "../../utils/tokenContext";
 import { useHistory } from "react-router-dom";
-
+import "./AdminNav.css"
 const AdminNav = () => {
   const {logout, token} = useContext(TokenContext);
   const history = useHistory();
@@ -34,7 +34,7 @@ const AdminNav = () => {
             <NavLink to="/admin/create-user">Create User</NavLink>
           </li>
           <li className="tab">
-            <button className="btn" onClick={()=>logOutUser()}>Log Out</button>
+            <button className="logoutBtn" onClick={()=>logOutUser()}>LOGOUT</button>
           </li>
         </ul>
       </div>
