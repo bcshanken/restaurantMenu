@@ -28,8 +28,12 @@ const Orders = () => {
         {orders.map((orderItems) => {
           return (
             <React.Fragment>
-              <div className="card horizontal order-category-wrapper order-card" key={orderItems._id}>
+              <div
+                className="card horizontal order-category-wrapper order-card"
+                key={orderItems._id}
+              >
                 <div className="card-stacked">
+                  <span className="card-title">Order Number: {orderItems._id}</span>
                   <div className="col s6 input-field">
                     <select
                       className="browser-default"
@@ -49,11 +53,13 @@ const Orders = () => {
                   {orderItems.items.map((order) => {
                     return (
                       <React.Fragment key={order.orderID}>
-                        <OrderCard {...order} {...orderItems}/>
+                        <OrderCard {...order} {...orderItems} />
                       </React.Fragment>
                     );
                   })}
-                  <strong className="card-title orders-text">Subtotoal: {orderItems.price}</strong>
+                  <strong className="card-title orders-text">
+                    Subtotoal: {orderItems.price}
+                  </strong>
                 </div>
               </div>
             </React.Fragment>
