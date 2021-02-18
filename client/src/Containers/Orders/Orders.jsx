@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState, useEffect } from "react";
 import AdminNav from "../../Components/AdminNav.jsx/AdminNav";
 import OrderCard from "../../Components/OrderCard/OrderCard";
@@ -28,9 +27,13 @@ const Orders = () => {
       <div className="order-wrapper">
         {orders.map((orderItems) => {
           return (
-            <React.Fragment key={orderItems._id}>
-              <div className="card horizontal order-category-wrapper order-card">
+            <React.Fragment>
+              <div
+                className="card horizontal order-category-wrapper order-card"
+                key={orderItems._id}
+              >
                 <div className="card-stacked">
+                  <span className="card-title">Order Number: {orderItems._id}</span>
                   <div className="col s6 input-field">
                     <select
                       className="browser-default"
@@ -49,12 +52,14 @@ const Orders = () => {
                   </div>
                   {orderItems.items.map((order) => {
                     return (
-                      <React.Fragment key={orderItems.orderID}>
-                        <OrderCard {...order} />
+                      <React.Fragment key={order.orderID}>
+                        <OrderCard {...order} {...orderItems} />
                       </React.Fragment>
                     );
                   })}
-                  <strong className="card-title orders-text">Subtotoal: $28.99</strong>
+                  <strong className="card-title orders-text">
+                    Subtotoal: {orderItems.price}
+                  </strong>
                 </div>
               </div>
             </React.Fragment>

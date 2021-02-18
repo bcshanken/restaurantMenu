@@ -1,24 +1,21 @@
 import React from "react";
 import "../OrderCard/OrderCard.css";
 
-const OrderCard = ({ title, price, desc, details, _id, addOns }) => {
+const OrderCard = ({ menuItem, details, addOns, instructions,  }) => {
   return (
     <div className="card-content orders-card-wrapper">
-      {title.map((newTitle) => {
+      <span className="card-title orders-title">{menuItem.title}</span>
+      <span className="card-title">Add-Ons:</span>
+      {addOns.map((addOn) => {
         return (
-          <React.Fragment key={newTitle}>
-            <div key={newTitle}>
-              <span className="card-title orders-title">
-                {newTitle}
-              </span>
-              <span className="card-title orders-title">
-                Add On: {addOns}
-              </span>
-              <strong className="card-title orders-text">Customer Details: {details} </strong>
+          <React.Fragment>
+            <div>
+              <span className="card-title order-add-ons">{addOn.title}</span>
             </div>
           </React.Fragment>
         );
       })}
+      <span className="card-title">Customer Instructions: {instructions}</span>
     </div>
   );
 };
