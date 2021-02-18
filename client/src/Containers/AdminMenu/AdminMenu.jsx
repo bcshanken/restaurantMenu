@@ -43,21 +43,21 @@ const AdminMenu = () => {
         <div className="adminMenu">
           <div className="row">
             <div className="col s12">
-              <h1 className="center-align">Admin Menu</h1>
+              <h3 className="center-align">Admin Menu</h3>
             </div>
             <div className="row center-align">
               <div className="col s3 menuFilterButtons">
-                <Link to="/newfood">
+                <Link to="/admin/menu/add">
                   <button className="btn waves-effect waves-light submit-button">
                     Create New Food
                   </button>
                 </Link>
               </div>
-              <div className="col s3 input-field">
+              <div className="col s6 input-field">
                 <input
                   id="searchTerm"
                   type="text"
-                  className="validate"
+                  className="validate foodFormInput"
                   name="searchTerm"
                   placeholder="Search Names"
                  
@@ -65,7 +65,7 @@ const AdminMenu = () => {
                   
                     let searchVar = "";
                     searchVar = searchVar.concat(e.target.value)
-                    console.log(searchVar);
+                   
                     const searchedItems = menuItems.filter(
                       (item) => {
                         return item.title.toLowerCase().includes(searchVar.toLowerCase());
@@ -80,6 +80,7 @@ const AdminMenu = () => {
                   id="filterTerm"
                   className="browser-default"
                   name="category"
+                  defaultValue={`Default`}
 
                   onChange={(e) => {
                     
@@ -92,7 +93,7 @@ const AdminMenu = () => {
                     setDisplayMenuItems(filteredItems);
                   }}
                 >
-                  <option value="" selected>
+                  <option value='Default' disabled>
                     Category
                   </option>
                   <option value="Appetizer">Appetizer</option>
@@ -100,14 +101,6 @@ const AdminMenu = () => {
                   <option value="Dessert">Dessert</option>
                   <option value="Side">Side</option>
                 </select>
-              </div>
-              <div className="col s3 menuFilterButtons">
-                <button
-                  className="btn waves-effect waves-light submit-button"
-                  onClick={handleReset}
-                >
-                  Reset Menu
-                </button>
               </div>
             </div>
           </div>
