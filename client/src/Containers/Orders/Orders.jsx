@@ -53,7 +53,7 @@ const Orders = () => {
                       </React.Fragment>
                     );
                   })}
-                  <strong className="card-title orders-text">Subtotoal: $28.99</strong>
+                  <strong className="card-title orders-text">Subtotoal: {orderItems.price}</strong>
                 </div>
               </div>
             </React.Fragment>
