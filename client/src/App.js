@@ -68,7 +68,7 @@ function App() {
               path="/admin/order/:id"
               component={OrderDetails}
             />
-            <Route exact path="/admin/orders" component={Orders} />
+            <ProtectedRoute exact path="/admin/orders" component={Orders} />
             <ProtectedRoute exact path="/admin/menu" component={AdminMenu} />
             <ProtectedRoute exact path="/admin/menu/add" component={NewFood} />
             <ProtectedRoute
