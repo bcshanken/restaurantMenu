@@ -1,7 +1,8 @@
 import React from "react";
 
 const TokenContext = React.createContext({
-    token: ""
+    token: "",
+    logout: () => {}
 });
 
 export default TokenContext;

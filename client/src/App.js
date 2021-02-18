@@ -40,7 +40,7 @@ function App() {
         );
       } catch (err) {
         console.log(err);
-      } finally{
+      } finally {
         setLoading(false);
       }
     };
@@ -57,14 +57,14 @@ function App() {
   const logout = (cb) => {
     setToken("");
     cb();
-  };
+  }
 
-  if(loading) return null;
+  if (loading) return null;
 
   return (
     <Router>
       <AlertContext.Provider value={{ ...alert, setAlert: setAlert }}>
-        <TokenContext.Provider value={{ token: token }}>
+        <TokenContext.Provider value={{ token: token, logout: logout }}>
           <Switch>
             <Route exact path="/" component={Menu} />
             <Route exact path="/item/:id" component={ProductDetails} />
