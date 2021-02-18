@@ -1,0 +1,10 @@
+.logoutBtn {
+    background-color: #d68c45;
+    border: none !important;
+    color: #274156;
+    font-family: "Roboto", sans-serif;
+}
+
+.logoutBtn:hover {
+    color: white;
+}

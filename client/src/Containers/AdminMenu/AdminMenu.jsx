@@ -10,7 +10,6 @@ const AdminMenu = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [displayMenuItems, setDisplayMenuItems] = useState([]);
 
-
   useEffect(() => {
     initializeMenu();
   }, []);
@@ -39,7 +38,7 @@ const AdminMenu = () => {
 
   return (
     <>
-      <AdminNav />
+      <AdminNav/>
       <div className="container">
         <div className="adminMenu">
           <div className="row">
