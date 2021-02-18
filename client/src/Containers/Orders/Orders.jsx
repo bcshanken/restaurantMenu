@@ -43,7 +43,7 @@ const Orders = () => {
                       //   setCategory(e.target.value);
                       // }}
                     >
-                      <option defaultValue={"Pending"}>Status</option>
+                      <option defaultValue={"Pending"}>{orderItems.status}</option>
                       <option value="Pending">Pending</option>
                       <option value="Cooking">Cooking</option>
                       <option value="Finished">Finished</option>
