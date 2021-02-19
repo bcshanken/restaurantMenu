@@ -25,5 +25,8 @@ export default {
   },
   getOrders: function() {
     return axios.get("/api/order")
+  },
+  updateOrder: function(data, id){
+    return axios.post("/api/order/" + id, data)
   }
 };
