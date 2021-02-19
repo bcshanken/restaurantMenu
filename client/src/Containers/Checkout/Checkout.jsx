@@ -90,12 +90,12 @@ const Checkout = () => {
             <CheckoutItem {...orderItem} key={orderItem.createdAt} />
           ))}
           <footer id="total-wrapper">
-            {/* <Link to="/confirmation"> */}
+            <Link to="/confirmation">
             <button onClick={submitOrder} id="checkout-submit">
               <span>Place order</span>
               <span>{orderTotal}</span>
             </button>
-            {/* </Link> */}
+            </Link>
           </footer>
         </>
       )}
