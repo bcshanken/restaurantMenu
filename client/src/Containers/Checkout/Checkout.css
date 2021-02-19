@@ -61,3 +61,45 @@
   background: #da9553;
   cursor: pointer;
 }
+
+#toast-container {
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+}
+
+.checkout-confirmation {
+  display: inline-block;
+  width: calc(100vw - 24px);
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+
+  color: #ffffff;
+  background: #45D363;
+}
+
+.checkout-err {
+  display: inline-block;
+  width: calc(100vw - 24px);
+  padding: 10px;
+  border: none;
+  border-radius: 7px;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+
+  color: #ffffff;
+  background: #D36345;
+}
