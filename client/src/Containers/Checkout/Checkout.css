@@ -43,7 +43,7 @@
 }
 
 #checkout-wrapper #checkout-submit {
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 7px;
   display: flex;
@@ -57,9 +57,16 @@
   line-height: 28px;
   text-align: center;
 
+  z-index: 1;
   color: #ffffff;
-  background: #da9553;
+  background-color: #da9553;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+    0 1px 5px 0 rgb(0 0 0 / 20%);
   cursor: pointer;
+}
+
+#checkout-wrapper #checkout-submit:focus {
+  background-color: #bf8249;
 }
 
 #toast-container {
@@ -68,10 +75,10 @@
   left: 12px;
 }
 
-.checkout-confirmation {
+.checkout-toast {
   display: inline-block;
   width: calc(100vw - 24px);
-  padding: 10px;
+  padding: 12px;
   border: none;
   border-radius: 7px;
 
@@ -83,23 +90,14 @@
   text-align: center;
 
   color: #ffffff;
-  background: #45D363;
+  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
+    0 1px 5px 0 rgb(0 0 0 / 20%);
+}
+
+.checkout-confirmation {
+  background: #45d363;
 }
 
 .checkout-err {
-  display: inline-block;
-  width: calc(100vw - 24px);
-  padding: 10px;
-  border: none;
-  border-radius: 7px;
-
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  text-align: center;
-
-  color: #ffffff;
-  background: #D36345;
+  background: #d36345;
 }

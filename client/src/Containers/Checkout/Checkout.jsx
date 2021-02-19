@@ -42,15 +42,17 @@ const Checkout = () => {
       await API.createOrder(order);
       setOrderItems([]);
       localStorage.clear();
-      response = "Order Placed!";
-
+      response = "Order placed!";
     } catch (err) {
-      response = "Could not place order";
-
+      response = "Could not place order :/";
     } finally {
       M.toast({
         html: response,
-        classes: response === "Order Placed!" ? "checkout-confirmation" : "checkout-err",
+        classes:
+          "checkout-toast " +
+          (response === "Order placed!"
+            ? "checkout-confirmation"
+            : "checkout-err "),
       });
     }
   };
