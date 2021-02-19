@@ -6,13 +6,13 @@ const InstructionsInput = ({ value, handleChange }) => {
     <div className="input-field">
       <textarea
         value={value}
+        placeholder="add a note (extra sauce, no onions, etc.)"
         onChange={(e) => {
           handleChange(e.target.value);
         }}
         id="special-instructions"
         className="materialize-textarea"
       ></textarea>
-      <label htmlFor="special-instructions">Special instructions</label>
     </div>
   );
 };
