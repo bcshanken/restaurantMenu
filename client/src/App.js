@@ -16,6 +16,7 @@ import Checkout from "./Containers/Checkout/Checkout";
 import NewUser from "./Containers/NewUser/NewUser";
 import axios from "axios";
 import jwt from "jsonwebtoken";
+import Confirmation from "./Containers/Confirmation/Confirmation";
 
 function App() {
   const [alert, setAlert] = useState({ message: "", type: "" });
@@ -67,6 +68,7 @@ function App() {
         <TokenContext.Provider value={{ token: token, logout: logout }}>
           <Switch>
             <Route exact path="/item/:id" component={ProductDetails} />
+            <Route exact path="/confirmation" component={Confirmation} />
             <ProtectedRoute
               exact
               path="/admin/order/:id"
