@@ -1,0 +1,10 @@
+.confirmationCard {
+  background-color: #1c6e8c;
+  margin: 20px;
+  color: white;
+  border-radius: 15px;
+  padding: 15px 12px;
+}
+.confirmButtonRow{
+    padding-top:15px;
+}
