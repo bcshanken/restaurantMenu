@@ -1,20 +1,11 @@
 .product-details-wrapper .input-field {
-  margin: 42px 12px 24px 12px;
+  margin: 0;
 }
 
 .product-details-wrapper .input-field textarea {
+  margin: 0;
   border-bottom: 1px solid #c7d6d5;
   color: #ffffff;
-}
-
-.product-details-wrapper .input-field label {
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 21px;
-
-  color: #c7d6d5;
 }
 
 .product-details-wrapper .input-field textarea:focus + label {

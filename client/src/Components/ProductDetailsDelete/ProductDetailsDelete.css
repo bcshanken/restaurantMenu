@@ -7,14 +7,14 @@
   font-family: "Roboto", sans-serif;
   font-style: normal;
   font-size: 18px;
-  line-height: 18px;
+  line-height: 21px;
   text-align: center;
 
-  color: #da3126;
+  color: #DF4B41;
   background: none;
 }
 
 .product-details-delete:focus {
-  color: #DF4B41;
+  color: #C34239;
   background: none;
 }

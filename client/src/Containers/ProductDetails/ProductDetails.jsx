@@ -122,11 +122,13 @@ const ProductDetails = () => {
             ) : null
           )}
         </section>
-
-        <InstructionsInput
-          value={specialInstructions}
-          handleChange={setSpecialInstructions}
-        />
+        <section>
+          <h1 className="product-details-title">Special Instructions</h1>
+          <InstructionsInput
+            value={specialInstructions}
+            handleChange={setSpecialInstructions}
+          />
+        </section>
 
         <ProductDetailsSubmit
           text={orderItem ? "Edit item" : "Add to order"}
@@ -134,9 +136,9 @@ const ProductDetails = () => {
           handleClick={orderItem ? editClientOrder : addToClientOrder}
         />
 
-        {orderItem ? (
+        {orderItem && (
           <ProductDetailsDelete handleClick={removeFromClientOrder} />
-        ) : null}
+        )}
       </main>
     </>
   );
