@@ -31,9 +31,10 @@ const NewUser = () => {
         <div className="container login-card">
         <div className="row">
           <div className="col s12 m6">
-            <div className="card blue-grey darken-1">
+            <div className="card adminMenu">
               <div className="card-content white-text">
-                <span className="card-title">Admin Login</span>
+              <h3 className="center-align formHead">Create a User</h3>
+                
                 <div className="row">
                   <form className="col s12" onSubmit={handleFormSubmit}>
                     <div className="row">
@@ -41,7 +42,7 @@ const NewUser = () => {
                         <input
                           id="first_name"
                           type="text"
-                          className="validate"
+                          className="validate userFormInput"
                           value={firstName}
                           onChange={(e) => {
                             setFirstName(e.target.value);
@@ -53,7 +54,7 @@ const NewUser = () => {
                         <input
                           id="last_name"
                           type="text"
-                          className="validate"
+                          className="validate userFormInput"
                           value={lastName}
                           onChange={(e) => {
                             setLastName(e.target.value);
@@ -65,7 +66,7 @@ const NewUser = () => {
                         <input
                           id="email"
                           type="email"
-                          className="validate"
+                          className="validate userFormInput"
                           value={email}
                           onChange={(e) => {
                             setEmail(e.target.value);
@@ -79,7 +80,7 @@ const NewUser = () => {
                         <input
                           id="password"
                           type="password"
-                          className="validate"
+                          className="validate userFormInput"
                           value={password}
                           onChange={(e) => {
                             setPassword(e.target.value);

@@ -13,10 +13,10 @@ const MenuForm = ({ buttonText, handleFormSubmit }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log(id);
+    
     if (id) {
       API.getItem(id).then((response) => {
-        console.log(response.data);
+        
 
         setTitle(response.data.title);
         setDescription(response.data.description);
@@ -40,7 +40,7 @@ const MenuForm = ({ buttonText, handleFormSubmit }) => {
             placeholder="Dish Name"
             id="title"
             type="text"
-            className="validate"
+            className="validate foodFormInput"
             name="title"
             value={title}
             onChange={(e) => {
@@ -54,7 +54,7 @@ const MenuForm = ({ buttonText, handleFormSubmit }) => {
             placeholder="Image Url"
             id="img"
             type="text"
-            className="validate"
+            className="validate foodFormInput"
             name="img"
             value={img}
             onChange={(e) => {
@@ -67,7 +67,7 @@ const MenuForm = ({ buttonText, handleFormSubmit }) => {
             placeholder="Price"
             id="price"
             type="text"
-            className="validate"
+            className="validate foodFormInput"
             name="price"
             value={price}
             onChange={(e) => {
@@ -97,7 +97,7 @@ const MenuForm = ({ buttonText, handleFormSubmit }) => {
             placeholder="Description"
             id="description"
             type="text"
-            className="validate"
+            className="validate foodFormInput"
             name="description"
             value={description}
             onChange={(e) => {
