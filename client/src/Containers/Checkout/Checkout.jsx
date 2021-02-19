@@ -3,6 +3,7 @@ import CheckoutItem from "../../Components/CheckoutItem/CheckoutItem";
 import UserNav from "../../Components/UserNav.jsx/UserNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import M from "materialize-css";
 import API from "../../utils/API";
 import "./Checkout.css";
 
@@ -34,13 +35,25 @@ const Checkout = () => {
     return order;
   };
 
-  const submitOrder = async() => {
+  const submitOrder = async () => {
     const order = buildOrder();
+    let response = "";
     try {
       await API.createOrder(order);
-      console.log("order made!")
+      setOrderItems([]);
+      localStorage.clear();
+      response = "Order placed!";
     } catch (err) {
-      console.log(err);
+      response = "Could not place order :/";
+    } finally {
+      M.toast({
+        html: response,
+        classes:
+          "checkout-toast " +
+          (response === "Order placed!"
+            ? "checkout-confirmation"
+            : "checkout-err "),
+      });
     }
   };
 

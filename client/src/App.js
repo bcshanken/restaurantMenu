@@ -66,7 +66,6 @@ function App() {
       <AlertContext.Provider value={{ ...alert, setAlert: setAlert }}>
         <TokenContext.Provider value={{ token: token, logout: logout }}>
           <Switch>
-            <Route exact path="/" component={Menu} />
             <Route exact path="/item/:id" component={ProductDetails} />
             <ProtectedRoute
               exact
@@ -92,6 +91,7 @@ function App() {
               component={(props) => <Login {...props} login={login} />}
             />
             <Route exact path="/checkout" component={Checkout} />
+            <Route component={Menu} />
           </Switch>
         </TokenContext.Provider>
       </AlertContext.Provider>

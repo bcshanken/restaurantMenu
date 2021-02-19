@@ -11,7 +11,7 @@ const MenuFilter = ({ menuCategories, handleClick }) => {
           handleClick("ALL");
           setActiveCategory("ALL");
         }}
-        className={activeCategory === "ALL" ? "active" : null}
+        className={activeCategory === "ALL" ? "active" : "inactive"}
       >
         ALL
       </button>
@@ -22,10 +22,10 @@ const MenuFilter = ({ menuCategories, handleClick }) => {
               handleClick(menuCategory);
               setActiveCategory(menuCategory);
             }}
-            className={activeCategory === menuCategory ? "active" : null}
+            className={activeCategory === menuCategory ? "active" : "inactive"}
             key={menuCategory}
           >
-            {menuCategory}
+            {menuCategory}S
           </button>
         );
       })}

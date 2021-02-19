@@ -57,7 +57,7 @@ const Menu = () => {
         {currentMenuCategories.map((menuCategory) => {
           return (
             <div className="menu-category-wrapper" key={menuCategory}>
-              <span className="menu-category">{menuCategory}</span>
+              <span className="menu-category">{menuCategory+"S"}</span>
               {menuItems.map((menuItem) =>
                 menuCategory === menuItem.category.toUpperCase() ? (
                   <MenuItem {...menuItem} key={menuItem._id} />
