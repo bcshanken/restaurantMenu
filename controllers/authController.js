@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 router.post("/", (req, res) => {
   bcrypt.hash(req.body.password, 10).then((hashedPassword) => {
-    console.log(hashedPassword);
+    // console.log(hashedPassword);
     const newUser = {
       firstName: req.body.firstName,
       lastName: req.body.lastName,
@@ -15,7 +15,6 @@ router.post("/", (req, res) => {
     };
     User.create(newUser)
       .then((newUser) => {
-        // TODO: Send back token.
         const token = jwt.sign(
           { _id: newUser._id },
           process.env.JWT_SIGNATURE,
@@ -23,7 +22,7 @@ router.post("/", (req, res) => {
             expiresIn: 60 * 60,
           }
         );
-        console.log(token);
+        // console.log(token);
         res.json({
           token: token,
         });
@@ -38,7 +37,7 @@ router.post("/", (req, res) => {
 router.post("/login", (req, res) => {
   User.findOne({ email: req.body.email.toLowerCase() })
     .then((foundUser) => {
-      console.log(foundUser);
+      // console.log(foundUser);
       bcrypt.compare(req.body.password, foundUser.password).then((result) => {
         console.log(result);
         if (result) {
@@ -50,7 +49,7 @@ router.post("/login", (req, res) => {
             }
           );
           res.cookie("token", token, { httpOnly: true });
-          console.log(token);
+          // console.log(token);
           res.json({
             token: token,
           });
@@ -66,12 +65,12 @@ router.post("/login", (req, res) => {
 });
 
 router.post("/cookie", (req, res) => {
-  console.log(req.cookies.token);
+  // console.log(req.cookies.token);
   jwt.verify(req.cookies.token, process.env.JWT_SIGNATURE, (err, decoded) => {
     if (err) {
       res.status(401).end();
     } else {
-      console.log(decoded);
+      // console.log(decoded);
       const token = jwt.sign({ _id: decoded._id }, process.env.JWT_SIGNATURE, {
         expiresIn: 60 * 60,
       });
