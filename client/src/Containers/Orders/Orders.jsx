@@ -21,6 +21,11 @@ const Orders = () => {
     }
   };
 
+  // const handleChange = ({status}, id) => {
+  //   API.updateOrder( {status}, id).then((response) => {
+  //   })
+  // }
+
   return (
     <>
       <AdminNav />
@@ -37,11 +42,8 @@ const Orders = () => {
                   <div className="col s6 input-field">
                     <select
                       className="browser-default"
-                      name="category"
-                      // value={category}
-                      // onChange={(e) => {
-                      //   setCategory(e.target.value);
-                      // }}
+                      name="status"
+                      value="status"
                     >
                       <option defaultValue={"Pending"}>{orderItems.status}</option>
                       <option value="Pending">Pending</option>

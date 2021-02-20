@@ -4,18 +4,20 @@ import "../OrderCard/OrderCard.css";
 const OrderCard = ({ menuItem, details, addOns, instructions,  }) => {
   return (
     <div className="card-content orders-card-wrapper">
-      <span className="card-title orders-title">{menuItem.title}</span>
-      <span className="card-title">Add-Ons:</span>
+<dl>
+  <dt><span className="card-title orders-title"> - {menuItem.title}</span></dt>
+  <span className="card-title orders-title">Add-Ons:</span>
       {addOns.map((addOn) => {
         return (
           <React.Fragment>
-            <div>
-              <span className="card-title order-add-ons">{addOn.title}</span>
-            </div>
+                <dd className="card-title orders-title">
+                  - {addOn.title}
+                </dd>
           </React.Fragment>
         );
       })}
-      <span className="card-title">Customer Instructions: {instructions}</span>
+</dl>
+      <span className="card-title orders-title">Customer Instructions: {instructions}</span>
     </div>
   );
 };
