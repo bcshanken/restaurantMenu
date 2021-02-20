@@ -6,7 +6,6 @@ import "../Orders/Orders.css";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
-  const[status, setStatus] = useState("")
 
   useEffect(() => {
     initializeOrders();
@@ -44,10 +43,7 @@ const Orders = () => {
                     <select
                       className="browser-default"
                       name="status"
-                      value={orderItems.status}
-                      onChange={(e) => {
-                        setStatus(e.currentTarget.value)
-                      }}
+                      value="status"
                     >
                       <option defaultValue={"Pending"}>{orderItems.status}</option>
                       <option value="Pending">Pending</option>
