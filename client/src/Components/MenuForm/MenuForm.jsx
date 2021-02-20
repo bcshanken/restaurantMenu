@@ -89,6 +89,7 @@ const MenuForm = ({ buttonText, handleFormSubmit }) => {
             </option>
             <option value="Appetizer">Appetizer</option>
             <option value="Entree">Entree</option>
+            <option value="Side">Side</option>
             <option value="Dessert">Dessert</option>
           </select>
         </div>
