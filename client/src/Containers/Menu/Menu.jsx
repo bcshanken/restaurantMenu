@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Menu.css";
-import MenuItem from "../../Components/MenuItem.jsx/MenuItem";
-import MenuFilter from "../../Components/MenuFilter.jsx/MenuFilter";
+import MenuItem from "../../Components/MenuItem/MenuItem";
+import MenuFilter from "../../Components/MenuFilter/MenuFilter";
 import API from "../../utils/API";
+import UserNav from "../../Components/UserNav.jsx/UserNav";
+import AlertContext from "../../utils/alertContext";
 
 const Menu = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [menuCategories, setMenuCategories] = useState([]);
   const [currentMenuCategories, setCurrentMenuCategories] = useState([]);
+  const alert = useContext(AlertContext);
 
   // TODO: use less hooks //
   useEffect(() => {
@@ -24,6 +27,10 @@ const Menu = () => {
         setCurrentMenuCategories(categoriesSet);
       } catch (err) {
         console.log(err);
+        alert.setAlert({
+          message: "Menu could not load right now, check back soon!",
+          type: "danger",
+        });
       }
     };
     initializeMenu();
@@ -40,15 +47,17 @@ const Menu = () => {
 
   return (
     <>
+    <UserNav/>
       <MenuFilter
         menuCategories={menuCategories}
         handleClick={filterMenuByCategory}
       />
+      <p className="center-align">{alert.message}</p>
       <section className="menu-wrapper">
         {currentMenuCategories.map((menuCategory) => {
           return (
             <div className="menu-category-wrapper" key={menuCategory}>
-              <span className="menu-category">{menuCategory}</span>
+              <span className="menu-category">{menuCategory+"S"}</span>
               {menuItems.map((menuItem) =>
                 menuCategory === menuItem.category.toUpperCase() ? (
                   <MenuItem {...menuItem} key={menuItem._id} />

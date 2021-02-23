@@ -1,9 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./MenuItem.css";
 
-const MenuItem = ({ title, description, img, price, category, _id }) => {
+const MenuItem = ({ title, description, img, price, _id }) => {
   return (
-    <div className="card horizontal menu-item-card">
+    <NavLink to={`/item/${_id}`} className="card horizontal menu-item-card">
       <img className="menu-item-image" src={img} alt={title} />
       <div className="menu-item-content">
         <div className="line-clamp-4">
@@ -13,7 +14,7 @@ const MenuItem = ({ title, description, img, price, category, _id }) => {
         </div>
         <strong className="menu-item-price">{price}</strong>
       </div>
-    </div>
+    </NavLink>
   );
 };
 

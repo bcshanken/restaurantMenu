@@ -26,7 +26,7 @@ let menuSeed = [
     {
         title: "Tortellini & Shrimp Skewers",
         description: "Grilled shrimp and tortellini filled with cheese and smoked peppers. Served with a Sun-Dried Tomato Sauce.",
-        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1612276299/Aquaman/Fried-Pickles_ayogug.jpg",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1612276476/Aquaman/Tortellini-Shrimp-Skewers_zm76yw.jpg",
         price: "7.50",
         category: "Appetizer",
     },
@@ -61,7 +61,7 @@ let menuSeed = [
     {
         title: "Epic Fish Tacos",
         description: "Grilled Mahi Mahi tacos served on tasted tortillas, cabbage, and fresh cilantro topped with a baja sauce.",
-        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1612277439/Aquaman/Blackened-Salmon_azh4ci.jpg",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1612277705/Aquaman/Fish-Tacos_ulflcj.jpg",
         price: "12.75",
         category: "Entree",
     },
@@ -149,7 +149,54 @@ let menuSeed = [
         price: "4.50",
         category: "Dessert",
     },
+    {
+        title: "Citrus Salad",
+        description: "It stars all the beautiful, vibrant citrus: tangy grapefruit, navel oranges, and sweet blood oranges. They’re drizzled with a zingy dressing, then topped crushed pistachios and fresh mint.",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1613007478/Aquaman/Citrus-Salad_uoz0dy.jpg",
+        price: "3.00",
+        category: "Side",
+    },
+    {
+        title: "Smoked Gouda Mac",
+        description: "Ooey, gooey mac and cheese is the perfect comfort food.",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1613007478/Aquaman/Smoked-Gouda-Mac_cufddc.jpg",
+        price: "3.00",
+        category: "Side",
+    },
+    {
+        title: "Southwest Sweet Potatoes",
+        description: "Start with a baked sweet potato. Then add black bean salsa, corn, and drizzle with creamy cilantro sauce!",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1613007478/Aquaman/SouthWest-Sweet-Potatoes_qtfxve.jpg",
+        price: "3.00",
+        category: "Side",
+    },
+    {
+        title: "Tossed Salad",
+        description: "This salad features a rainbow of veggies: radishes, carrots, red and green onion, and tangy jarred pepperoncini. Add your choice of dressing: Honey Mustard, Balsamic Vinaigrette, House Caesar.",
+        img: "https://res.cloudinary.com/dwc5cle4q/image/upload/v1613007478/Aquaman/Tossed-Salad_zmlusg.jpg",
+        price: "3.00",
+        category: "Side",
+    },
 ]
+
+let userSeed = [
+    {
+        firstName: "Aqua",
+        lastName: "Men",
+        email: "pc@test.com",
+        password: "$2b$10$Gks6Vx.2pMSqEaRCPuxESO0QEW/wWmMwOHE8nrN8tqgTrYgiitJUa"
+    }
+]
+
+db.User.deleteMany({}).then(() => db.User.collection.insertMany(userSeed))
+  .then((data) => {
+    console.log(data.result.n + " records inserted!");
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
 
 db.Menu.deleteMany({})
   .then(() => db.Menu.collection.insertMany(menuSeed))

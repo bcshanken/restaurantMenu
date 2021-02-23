@@ -1,0 +1,20 @@
+.product-details-delete {
+  display: block;
+  margin: 32px auto;
+  padding: 0px;
+  border: none;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+
+  color: #DF4B41;
+  background: none;
+}
+
+.product-details-delete:focus {
+  color: #C34239;
+  background: none;
+}

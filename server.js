@@ -1,13 +1,16 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const routes = require("./routes");
+const cookieParser = require("cookie-parser");
 const app = express();
 
 const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(express.static("client/build"));
 
@@ -30,6 +33,14 @@ connection.on("connected", () => {
 connection.on("error", (err) => {
   console.log("Mongoose connection error: ", err);
 });
+
+const AuthController = require("./controllers/authController");
+
+app.get("/api/config", (req, res) => {
+  res.json({ success: true });
+});
+
+app.use("/api/auth", AuthController);
 
 app.use(routes);
 

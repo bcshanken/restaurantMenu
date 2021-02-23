@@ -1,0 +1,18 @@
+.product-details-wrapper .input-field {
+  margin: 0;
+}
+
+.product-details-wrapper .input-field textarea {
+  margin: 0;
+  border-bottom: 1px solid #c7d6d5;
+  color: #ffffff;
+}
+
+.product-details-wrapper .input-field textarea:focus + label {
+  color: #c7d6d5;
+}
+
+.product-details-wrapper .input-field textarea:focus {
+  border-bottom: 1px solid #c7d6d5;
+  box-shadow: 0 1px 0 0 #c7d6d5;
+}
