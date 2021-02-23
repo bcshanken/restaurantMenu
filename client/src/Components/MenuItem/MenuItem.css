@@ -12,6 +12,8 @@
 
 .menu-item-content {
   padding: 0px 0px 0px 12px;
+  width: 100%;
+  position: relative;
 }
 
 .menu-item-title {
@@ -37,8 +39,7 @@
 }
 
 .menu-item-price {
-  position: absolute;
-  bottom: 12px;
+  display: block;
 
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -65,4 +66,21 @@
 .inline-spacer {
   content: " ";
   line-height: 28px;
+}
+
+.menu-item-price-row {
+  position: absolute;
+  bottom: 0px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  margin-right: 12px;
+  width: calc(100% - 12px);
+}
+
+.menu-item-card:hover,
+.menu-item-card:active {
+  background-color: #1c6e8c90;
 }
