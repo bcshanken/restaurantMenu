@@ -33,6 +33,7 @@
   color: #000000;
   border: none;
   border-radius: 15px;
+  cursor: pointer;
 }
 
 .scroll-menu button.active {
