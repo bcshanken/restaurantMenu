@@ -3,9 +3,9 @@ import CheckoutItem from "../../Components/CheckoutItem/CheckoutItem";
 import UserNav from "../../Components/UserNav.jsx/UserNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import M from "materialize-css";
 import API from "../../utils/API";
 import "./Checkout.css";
+import displayToast from "../../utils/toast/toast";
 
 const Checkout = () => {
   const [orderItems, setOrderItems] = useState(
@@ -37,22 +37,13 @@ const Checkout = () => {
 
   const submitOrder = async () => {
     const order = buildOrder();
-    let response = "";
     try {
       await API.createOrder(order);
       setOrderItems([]);
       localStorage.clear();
-      response = "Order placed!";
+      displayToast("Order placed!", "green");
     } catch (err) {
-      response = "Could not place order :/";
-    } finally {
-      M.toast({
-        html: response,
-        classes:
-          response === "Order placed!"
-            ? "checkout-confirmation"
-            : "checkout-err ",
-      });
+      displayToast("Could not place order :/", "red");
     }
   };
 
