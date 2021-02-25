@@ -3,10 +3,9 @@ import CheckoutItem from "../../Components/CheckoutItem/CheckoutItem";
 import UserNav from "../../Components/UserNav.jsx/UserNav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import M from "materialize-css";
 import API from "../../utils/API";
 import "./Checkout.css";
-import { Link } from "react-router-dom";
+import displayToast from "../../utils/toast/toast";
 
 const Checkout = () => {
   const [orderItems, setOrderItems] = useState(
@@ -38,23 +37,13 @@ const Checkout = () => {
 
   const submitOrder = async () => {
     const order = buildOrder();
-    let response = "";
     try {
       await API.createOrder(order);
       setOrderItems([]);
       localStorage.clear();
-      response = "Order placed!";
+      displayToast("Order placed!", "green");
     } catch (err) {
-      response = "Could not place order :/";
-    } finally {
-      M.toast({
-        html: response,
-        classes:
-          "checkout-toast " +
-          (response === "Order placed!"
-            ? "checkout-confirmation"
-            : "checkout-err "),
-      });
+      displayToast("Could not place order :/", "red");
     }
   };
 
@@ -90,12 +79,10 @@ const Checkout = () => {
             <CheckoutItem {...orderItem} key={orderItem.createdAt} />
           ))}
           <footer id="total-wrapper">
-            {/* <Link to="/confirmation"> */}
             <button onClick={submitOrder} id="checkout-submit">
               <span>Place order</span>
               <span>{orderTotal}</span>
             </button>
-            {/* </Link> */}
           </footer>
         </>
       )}

@@ -68,36 +68,3 @@
 #checkout-wrapper #checkout-submit:focus {
   background-color: #bf8249;
 }
-
-#toast-container {
-  position: fixed;
-  bottom: 12px;
-  left: 12px;
-}
-
-.checkout-toast {
-  display: inline-block;
-  width: calc(100vw - 24px);
-  padding: 12px;
-  border: none;
-  border-radius: 7px;
-
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  text-align: center;
-
-  color: #ffffff;
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%),
-    0 1px 5px 0 rgb(0 0 0 / 20%);
-}
-
-.checkout-confirmation {
-  background: #45d363;
-}
-
-.checkout-err {
-  background: #d36345;
-}
