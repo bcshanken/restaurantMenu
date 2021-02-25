@@ -6,7 +6,6 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import M from "materialize-css";
 import API from "../../utils/API";
 import "./Checkout.css";
-import { Link } from "react-router-dom";
 
 const Checkout = () => {
   const [orderItems, setOrderItems] = useState(
@@ -50,10 +49,9 @@ const Checkout = () => {
       M.toast({
         html: response,
         classes:
-          "checkout-toast " +
-          (response === "Order placed!"
+          response === "Order placed!"
             ? "checkout-confirmation"
-            : "checkout-err "),
+            : "checkout-err ",
       });
     }
   };
@@ -90,12 +88,10 @@ const Checkout = () => {
             <CheckoutItem {...orderItem} key={orderItem.createdAt} />
           ))}
           <footer id="total-wrapper">
-            {/* <Link to="/confirmation"> */}
             <button onClick={submitOrder} id="checkout-submit">
               <span>Place order</span>
               <span>{orderTotal}</span>
             </button>
-            {/* </Link> */}
           </footer>
         </>
       )}
