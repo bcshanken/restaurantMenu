@@ -5,54 +5,82 @@
   background: #1c6e8c;
 }
 
-.card .menu-item-image {
+.menu-item-image {
   height: 128px;
   border-radius: 15px;
 }
 
-.card .menu-item-content {
+.menu-item-content {
   padding: 0px 0px 0px 12px;
+  width: 100%;
+  position: relative;
 }
 
-.card .card-content .menu-item-title {
-  margin: 0px 0px 6px 0px;
+.menu-item-title {
+  display: inline;
 
   font-family: "Roboto", sans-serif;
-  font-style: normal;
   font-weight: 700;
   font-size: 20px;
-  line-height: 22px;
+  line-height: 21px;
 
   color: #ffffff;
 }
 
-.card .menu-item-description {
-  display: inline-block;
-  max-height: 220px;
-  overflow: hidden;
+.menu-item-description {
+  display: inline;
 
+  white-space: pre-line;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 21px;
+
+  color: #EFEFEF;
+}
+
+.menu-item-price {
+  display: block;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 16px;
+
+  color: #ffffff;
+}
+
+.line-clamp-4 {
+  overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 21px;
-
   color: #c7d6d5;
 }
 
-.card .menu-item-price {
+.menu-item-description::before {
+  content: "\A ";
+}
+
+.inline-spacer {
+  content: " ";
+  line-height: 28px;
+}
+
+.menu-item-price-row {
   position: absolute;
-  bottom: 1px;
+  bottom: 0px;
 
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 21px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 
-  color: #ffffff;
+  margin-right: 12px;
+  width: calc(100% - 12px);
+}
+
+.menu-item-card:hover,
+.menu-item-card:active {
+  background-color: #1c6e8c90;
 }
