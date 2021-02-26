@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import API from "../../utils/API";
 import "./Checkout.css";
-import displayToast from "../../utils/toast/toast";
+import { ToastColor, displayToast } from "../../utils/toast/toast";
 
 const Checkout = () => {
   const [orderItems, setOrderItems] = useState(
@@ -41,9 +41,9 @@ const Checkout = () => {
       await API.createOrder(order);
       setOrderItems([]);
       localStorage.clear();
-      displayToast("Order placed!", "green");
+      displayToast("Order placed!", ToastColor.GREEN);
     } catch (err) {
-      displayToast("Could not place order :/", "red");
+      displayToast("Could not place order :/", ToastColor.RED);
     }
   };
 

@@ -1,15 +1,14 @@
 import M from "materialize-css";
-import "./toast.css"
+import "./toast.css";
+
+const ToastColor = Object.freeze({ GREEN: "toast-green", RED: "toast-red" });
 
 const displayToast = (message, color) => {
-    M.Toast.dismissAll();
-    M.toast({
-        html: message,
-        classes:
-          color === "green"
-            ? "toast-green"
-            : "toast-red",
-      });
+  M.Toast.dismissAll();
+  M.toast({
+    html: message,
+    classes: color,
+  });
 };
 
-export default displayToast;
+export { ToastColor, displayToast };
