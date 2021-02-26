@@ -2,7 +2,9 @@ import React, {useContext} from "react";
 import { NavLink } from "react-router-dom";
 import TokenContext from "../../utils/tokenContext";
 import { useHistory } from "react-router-dom";
-import "./AdminNav.css"
+import "./AdminNav.css";
+import api from "../../utils/API"
+
 const AdminNav = () => {
   const {logout, token} = useContext(TokenContext);
   const history = useHistory();
@@ -10,6 +12,7 @@ const AdminNav = () => {
   const logOutUser = () => {
     logout(() => {
       history.push("/");
+      api.logoutUser();
     })
   }
   return (
