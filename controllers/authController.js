@@ -79,4 +79,10 @@ router.post("/cookie", (req, res) => {
   });
 });
 
+router.post("/logout", (req, res) => {
+  console.log("Logged Out!");
+  res.clearCookie("token");
+  res.status(200).json('User Logged Out!');
+});
+
 module.exports = router;
