@@ -28,5 +28,8 @@ export default {
   },
   updateOrder: function(data, id){
     return axios.put("/api/order/" + id, data)
+  },
+  logoutUser: function(data){
+    return axios.post("/api/auth/logout", { }, { withCredentials: true});
   }
 };
