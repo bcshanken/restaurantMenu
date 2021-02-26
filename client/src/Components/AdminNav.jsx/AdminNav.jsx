@@ -13,7 +13,6 @@ const AdminNav = () => {
     logout(() => {
       history.push("/");
       api.logoutUser();
-      console.log("logged out");
     })
   }
   return (
